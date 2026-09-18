@@ -6,407 +6,397 @@
   <title>Knights of Vael'Dar | The Modern Order</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;900&family=Inter:wght@300;400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600&display=swap');
     .title-font { font-family: 'Cinzel', serif; }
     .body-font { font-family: 'Inter', sans-serif; }
   </style>
 </head>
-<body class="bg-stone-950 text-stone-200 body-font selection:bg-amber-900 selection:text-stone-100 overflow-x-hidden">
+<body class="bg-[#050505] text-neutral-300 body-font selection:bg-neutral-200 selection:text-black overflow-x-hidden antialiased">
 
   <!-- ========================================================================= -->
-  <!-- 0. THE GATEWAY (FULLSCREEN ENTRY SCREEN) -->
+  <!-- 0. THE GATEHOUSE (STARK FULLSCREEN ENTRY LOCK) -->
   <!-- ========================================================================= -->
-  <section id="gate" class="min-h-screen flex flex-col justify-between items-center text-center px-6 py-12 relative border-b border-stone-800">
-    <!-- Subtle Background Glow -->
-    <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-stone-900 via-stone-950 to-stone-950 -z-10"></div>
-
-    <div class="w-full flex justify-between items-center max-w-5xl">
-      <span class="text-xs uppercase tracking-widest text-stone-500 font-semibold">Initiation Portal</span>
-      <span class="text-xs uppercase tracking-widest text-amber-500/80 border border-amber-500/20 px-2.5 py-1 rounded">2026 Cohort</span>
+  <section id="gatehouse" class="min-h-screen w-full flex flex-col justify-between items-center text-center px-6 py-12 relative bg-[#050505]">
+    
+    <!-- Header Stamp -->
+    <div class="w-full flex justify-between items-center max-w-5xl border-b border-neutral-900 pb-4">
+      <span class="text-[11px] uppercase tracking-[0.3em] text-neutral-500 font-medium">Outpost // Public Gate</span>
+      <span class="text-[11px] uppercase tracking-[0.3em] text-neutral-400 border border-neutral-800 px-3 py-1">2026 Sovereign Cohort</span>
     </div>
 
-    <div class="max-w-3xl my-auto py-12 flex flex-col items-center">
-      <!-- Minimalist Emblem -->
-      <div class="w-20 h-20 border border-amber-500/50 rounded-lg flex items-center justify-center bg-stone-900/60 shadow-lg shadow-amber-950/20 mb-8">
-        <svg class="w-10 h-10 text-amber-500" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm0 2.18l6 2.25v4.66c0 4.14-2.74 8.01-6 9.08-3.26-1.07-6-4.94-6-9.08V6.43l6-2.25zM11 7v6h2V7h-2zm0 8v2h2v-2h-2z"/>
+    <!-- Central Monolith -->
+    <div class="max-w-2xl my-auto py-12 flex flex-col items-center">
+      
+      <!-- Minimalist Emblem: Shield & Piercing Blade in Silver/White -->
+      <div class="w-24 h-24 border border-neutral-700/80 rounded flex items-center justify-center bg-neutral-950 mb-10 shadow-[0_0_30px_rgba(255,255,255,0.03)]">
+        <svg class="w-12 h-12 text-neutral-100" fill="none" stroke="currentColor" stroke-width="1.25" viewBox="0 0 24 24">
+          <!-- Outer Shield -->
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 2L4 5v6.5C4 16.5 7.5 21 12 22c4.5-1 8-5.5 8-10.5V5l-8-3z"/>
+          <!-- Central Piercing Sword -->
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v11M9.5 9h5M11 17h2"/>
         </svg>
       </div>
 
-      <h1 class="title-font text-3xl sm:text-5xl md:text-6xl font-bold tracking-widest text-stone-100 mb-6">
+      <h1 class="title-font text-3xl sm:text-5xl font-bold tracking-[0.25em] text-white mb-8">
         KNIGHT ORDER OF VAEL'DAR
       </h1>
 
-      <!-- Exactly 3 Sentences -->
-      <p class="text-base sm:text-lg text-stone-400 font-light leading-relaxed max-w-2xl mx-auto mb-10">
+      <!-- The 3 Sentences -->
+      <p class="text-sm sm:text-base text-neutral-400 font-light leading-relaxed max-w-xl mx-auto mb-12">
         We are a secular brotherhood dedicated to conquering the internal adversaries of complacency, anxiety, and distraction. Through voluntary physical adversity and mental discipline, we master ourselves so we can serve as a steady anchor for others. If you are satisfied with comfort, look elsewhere; if you seek the forge, step forward.
       </p>
 
-      <a href="#about" class="px-8 py-4 bg-amber-500 hover:bg-amber-400 text-stone-950 font-semibold title-font text-xs uppercase tracking-widest rounded transition-all shadow-md hover:shadow-amber-500/20">
+      <!-- The Trigger -->
+      <button onclick="unlockPortal()" class="px-10 py-4 border border-white bg-white text-black font-semibold title-font text-xs uppercase tracking-[0.3em] hover:bg-transparent hover:text-white transition-all duration-200">
         Enter The Order &darr;
-      </a>
+      </button>
     </div>
 
-    <div class="text-xs tracking-widest text-stone-600 uppercase">
-      knightsofvaeldar.com &bull; Step Through To Proceed
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- NAVIGATION BAR (STICKY FOR MAIN PORTAL) -->
-  <!-- ========================================================================= -->
-  <header class="sticky top-0 z-40 bg-stone-950/95 backdrop-blur border-b border-stone-800/80 px-6 py-4">
-    <div class="max-w-6xl mx-auto flex justify-between items-center">
-      <a href="#gate" class="title-font font-bold text-sm tracking-widest text-stone-100 hover:text-amber-400 transition-colors">
-        VAEL'DAR
-      </a>
-      <nav class="hidden md:flex space-x-6 text-xs uppercase tracking-wider text-stone-400 font-medium">
-        <a href="#about" class="hover:text-stone-100 transition-colors">About & Codex</a>
-        <a href="#join" class="hover:text-stone-100 transition-colors">How To Join</a>
-        <a href="#fireside" class="hover:text-stone-100 transition-colors">Daily Stories</a>
-        <a href="#challenges" class="hover:text-stone-100 transition-colors">Challenges</a>
-        <a href="#community" class="hover:text-stone-100 transition-colors">Community</a>
-      </nav>
-      <a href="#join" class="px-3.5 py-1.5 border border-stone-700 hover:border-amber-500/60 rounded text-xs uppercase tracking-wider text-stone-300 hover:text-white transition-all">
-        Take Assessment
-      </a>
-    </div>
-  </header>
-
-  <!-- ========================================================================= -->
-  <!-- 1. ABOUT US & THE CODEX -->
-  <!-- ========================================================================= -->
-  <section id="about" class="py-24 px-6 max-w-5xl mx-auto border-b border-stone-900">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <span class="text-xs uppercase tracking-widest text-amber-500 font-semibold">Section 01</span>
-      <h2 class="title-font text-3xl font-bold text-stone-100 mt-2">Why We Exist</h2>
-      <p class="text-stone-400 text-sm mt-3 leading-relaxed">
-        Modern comfort has removed outward physical survival battles, but multiplied internal isolation, aimlessness, and quiet anxiety.
-      </p>
-    </div>
-
-    <!-- The Problem & Mission Breakdown -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-      <div class="p-6 bg-stone-900/40 border border-stone-800 rounded-lg">
-        <h3 class="title-font text-base font-bold text-stone-200 mb-2">The Real Enemy</h3>
-        <p class="text-xs text-stone-400 leading-relaxed">
-          The modern war is not waged against foreign borders. It is fought alone in everyday decisions against procrastination, self-deception, fear of discomfort, and digital addiction.
-        </p>
-      </div>
-      <div class="p-6 bg-stone-900/40 border border-stone-800 rounded-lg">
-        <h3 class="title-font text-base font-bold text-stone-200 mb-2">The Mission</h3>
-        <p class="text-xs text-stone-400 leading-relaxed">
-          We combine serious physical training benchmarks with an unbending moral standard. First, build internal sovereignty; then, use that strength to protect and mentor others.
-        </p>
-      </div>
-    </div>
-
-    <!-- The 7-Point Codex -->
-    <div class="mt-8">
-      <h3 class="title-font text-xl font-bold text-stone-100 mb-6 text-center">The Seven Principles (The Codex)</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div class="p-4 bg-stone-900/20 border border-stone-800/80 rounded">
-          <span class="text-amber-500 font-bold text-xs">01</span>
-          <h4 class="text-sm font-semibold text-stone-200 mt-1">Guardian of Possibility</h4>
-          <p class="text-xs text-stone-400 mt-1">Fight for unseen solutions and actively defend the latent potential in others.</p>
-        </div>
-        <div class="p-4 bg-stone-900/20 border border-stone-800/80 rounded">
-          <span class="text-amber-500 font-bold text-xs">02</span>
-          <h4 class="text-sm font-semibold text-stone-200 mt-1">Rational Conviction</h4>
-          <p class="text-xs text-stone-400 mt-1">Trust the compounding result of daily discipline over temporary feelings of doubt.</p>
-        </div>
-        <div class="p-4 bg-stone-900/20 border border-stone-800/80 rounded">
-          <span class="text-amber-500 font-bold text-xs">03</span>
-          <h4 class="text-sm font-semibold text-stone-200 mt-1">Abandonment of Ego</h4>
-          <p class="text-xs text-stone-400 mt-1">Prioritize quiet execution and service above corporate titles and vanity.</p>
-        </div>
-        <div class="p-4 bg-stone-900/20 border border-stone-800/80 rounded">
-          <span class="text-amber-500 font-bold text-xs">04</span>
-          <h4 class="text-sm font-semibold text-stone-200 mt-1">Transferable Mastery</h4>
-          <p class="text-xs text-stone-400 mt-1">Hard lessons learned under physical load directly apply to business and leadership.</p>
-        </div>
-        <div class="p-4 bg-stone-900/20 border border-stone-800/80 rounded">
-          <span class="text-amber-500 font-bold text-xs">05</span>
-          <h4 class="text-sm font-semibold text-stone-200 mt-1">Action Despite Fear</h4>
-          <p class="text-xs text-stone-400 mt-1">Courage is not the absence of anxiety; it is deliberate movement in its presence.</p>
-        </div>
-        <div class="p-4 bg-stone-900/20 border border-stone-800/80 rounded">
-          <span class="text-amber-500 font-bold text-xs">06</span>
-          <h4 class="text-sm font-semibold text-stone-200 mt-1">Total Integrity</h4>
-          <p class="text-xs text-stone-400 mt-1">Your word is an absolute contract. Do what you said you would do, even in private.</p>
-        </div>
-        <div class="p-4 bg-stone-900/20 border border-stone-800/80 rounded md:col-span-2">
-          <span class="text-amber-500 font-bold text-xs">07</span>
-          <h4 class="text-sm font-semibold text-stone-200 mt-1">Earned Brotherhood</h4>
-          <p class="text-xs text-stone-400 mt-1">Real solidarity is built through shared hardship, not surface-level networking.</p>
-        </div>
-      </div>
+    <!-- Bottom Metadata -->
+    <div class="text-[10px] tracking-[0.4em] text-neutral-600 uppercase border-t border-neutral-900 pt-4 w-full max-w-5xl">
+      knightsofvaeldar.com &bull; Silence & Bull; Discipline & Bull; Mastery
     </div>
   </section>
 
   <!-- ========================================================================= -->
-  <!-- 2. HOW TO JOIN & ASSESSMENT -->
+  <!-- MAIN STRONGHOLD (HIDDEN INITIALLY UNTIL "ENTER" IS PRESSED) -->
   <!-- ========================================================================= -->
-  <section id="join" class="py-24 px-6 max-w-4xl mx-auto border-b border-stone-900">
-    <div class="text-center max-w-2xl mx-auto mb-12">
-      <span class="text-xs uppercase tracking-widest text-amber-500 font-semibold">Section 02</span>
-      <h2 class="title-font text-3xl font-bold text-stone-100 mt-2">Find Your Weapon</h2>
-      <p class="text-stone-400 text-sm mt-3 leading-relaxed">
-        Membership cannot be bought. Answer these questions to identify your operational style and select your training discipline.
-      </p>
-    </div>
+  <div id="stronghold" class="hidden opacity-0 transition-opacity duration-700">
 
-    <!-- Assessment Component -->
-    <div class="p-8 bg-stone-900/50 border border-stone-800 rounded-xl">
-      <form id="assessmentForm" onsubmit="event.preventDefault(); submitAssessment();" class="space-y-6">
-        
-        <div>
-          <label class="block text-xs uppercase tracking-wider text-stone-300 font-semibold mb-2">1. What is your primary internal adversary?</label>
-          <select id="adversary" class="w-full bg-stone-950 border border-stone-700 rounded p-3 text-sm text-stone-300 focus:border-amber-500 focus:outline-none">
-            <option value="distraction">Constant Distraction & Lack of Deep Focus</option>
-            <option value="complacency">Complacency & Settling for Average</option>
-            <option value="anxiety">Internal Anxiety & Overthinking</option>
-            <option value="isolation">Isolation & Lack of Accountable Peers</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-xs uppercase tracking-wider text-stone-300 font-semibold mb-2">2. What philosophical tradition aligns with your mindset?</label>
-          <select id="philosophy" class="w-full bg-stone-950 border border-stone-700 rounded p-3 text-sm text-stone-300 focus:border-amber-500 focus:outline-none">
-            <option value="stoic">Stoicism (Focus purely on what is within your control)</option>
-            <option value="bushido">Bushidō (Uncompromising duty, action, and honor)</option>
-            <option value="zen">Zen & Stillness (Clarity through breath and detachment)</option>
-            <option value="pragmatic">Strict Secular Pragmatism (Whatever produces verified results)</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-xs uppercase tracking-wider text-stone-300 font-semibold mb-2">3. Declare Your Weapon (Primary Discipline for Facing Resistance)</label>
-          <select id="weapon" class="w-full bg-stone-950 border border-stone-700 rounded p-3 text-sm text-stone-300 focus:border-amber-500 focus:outline-none">
-            <option value="rucking">Weighted Rucking & Long-Distance Marching</option>
-            <option value="rowing">Ergometer Rowing (Threshold cardio)</option>
-            <option value="martial">Martial Arts (BJJ, Boxing, Sparring)</option>
-            <option value="cold">Thermal Shock & Cold Water Exposure</option>
-            <option value="solitude">Extended Silent Fasting & Solitude</option>
-          </select>
-        </div>
-
-        <div>
-          <label class="block text-xs uppercase tracking-wider text-stone-300 font-semibold mb-2">Your Name or Alias</label>
-          <input type="text" id="applicantName" required placeholder="e.g., Kenshi" class="w-full bg-stone-950 border border-stone-700 rounded p-3 text-sm text-stone-300 focus:border-amber-500 focus:outline-none mb-4" />
-          
-          <label class="block text-xs uppercase tracking-wider text-stone-300 font-semibold mb-2">Email Address for Protocols</label>
-          <input type="email" id="applicantEmail" required placeholder="you@domain.com" class="w-full bg-stone-950 border border-stone-700 rounded p-3 text-sm text-stone-300 focus:border-amber-500 focus:outline-none" />
-        </div>
-
-        <button type="submit" class="w-full py-4 bg-amber-500 hover:bg-amber-400 text-stone-950 font-bold title-font text-xs uppercase tracking-widest rounded transition-all">
-          Generate Profile & Start 21-Day Trial
-        </button>
-      </form>
-
-      <!-- Results Display Box -->
-      <div id="assessmentResult" class="hidden mt-8 p-6 bg-stone-950 border border-amber-500/40 rounded-lg text-center">
-        <span class="text-xs uppercase tracking-widest text-amber-500 font-bold">Profile Confirmed</span>
-        <h4 id="resultTitle" class="title-font text-xl text-stone-100 font-bold mt-2"></h4>
-        <p id="resultDesc" class="text-xs text-stone-400 mt-2 leading-relaxed max-w-xl mx-auto"></p>
-        <div class="mt-4 pt-4 border-t border-stone-800 text-xs text-stone-500">
-          Your initial trial protocols have been logged. Access the challenge library below.
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- 3. DAILY STORIES & WISDOM (THE FIRESIDE) -->
-  <!-- ========================================================================= -->
-  <section id="fireside" class="py-24 px-6 max-w-5xl mx-auto border-b border-stone-900">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <span class="text-xs uppercase tracking-widest text-amber-500 font-semibold">Section 03</span>
-      <h2 class="title-font text-3xl font-bold text-stone-100 mt-2">Daily Stories & Lessons</h2>
-      <p class="text-stone-400 text-sm mt-3 leading-relaxed">
-        Principles remain theoretical until tested in real life. Short daily case studies and fireside exchanges on applying the Codex.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      <!-- Story 1 -->
-      <article class="p-6 bg-stone-900/40 border border-stone-800 rounded-lg flex flex-col justify-between">
-        <div>
-          <div class="flex justify-between text-[11px] text-stone-500 mb-3">
-            <span>DISPATCH #42</span>
-            <span>SEPTEMBER 2026</span>
-          </div>
-          <h3 class="font-semibold text-stone-200 text-base mb-2">The 5:00 AM Negotiator</h3>
-          <p class="text-xs text-stone-400 leading-relaxed">
-            The mind does not argue with loud rebellion; it uses gentle, reasonable excuses. How to recognize the rationalization loop before your feet hit the floor.
-          </p>
-        </div>
-        <a href="#about" class="text-xs text-amber-500 hover:text-amber-400 font-semibold mt-4 block">Read Lesson &rarr;</a>
-      </article>
-
-      <!-- Story 2 -->
-      <article class="p-6 bg-stone-900/40 border border-stone-800 rounded-lg flex flex-col justify-between">
-        <div>
-          <div class="flex justify-between text-[11px] text-stone-500 mb-3">
-            <span>DISPATCH #41</span>
-            <span>SEPTEMBER 2026</span>
-          </div>
-          <h3 class="font-semibold text-stone-200 text-base mb-2">The Boardroom Blade</h3>
-          <p class="text-xs text-stone-400 leading-relaxed">
-            When corporate politics demand passive agreement, integrity requires steady truth. Applying 'Honor as Measure of the Soul' without burning down bridges.
-          </p>
-        </div>
-        <a href="#about" class="text-xs text-amber-500 hover:text-amber-400 font-semibold mt-4 block">Read Lesson &rarr;</a>
-      </article>
-
-      <!-- Story 3 -->
-      <article class="p-6 bg-stone-900/40 border border-stone-800 rounded-lg flex flex-col justify-between">
-        <div>
-          <div class="flex justify-between text-[11px] text-stone-500 mb-3">
-            <span>DISPATCH #40</span>
-            <span>SEPTEMBER 2026</span>
-          </div>
-          <h3 class="font-semibold text-stone-200 text-base mb-2">The Exhaustion Threshold</h3>
-          <p class="text-xs text-stone-400 leading-relaxed">
-            On km 18 of a weighted ruck, character is laid bare. Why voluntary fatigue is the quickest tool to dissolve ego and artificial confidence.
-          </p>
-        </div>
-        <a href="#about" class="text-xs text-amber-500 hover:text-amber-400 font-semibold mt-4 block">Read Lesson &rarr;</a>
-      </article>
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- 4. CHALLENGES & REQUIREMENTS -->
-  <!-- ========================================================================= -->
-  <section id="challenges" class="py-24 px-6 max-w-5xl mx-auto border-b border-stone-900">
-    <div class="text-center max-w-2xl mx-auto mb-16">
-      <span class="text-xs uppercase tracking-widest text-amber-500 font-semibold">Section 04</span>
-      <h2 class="title-font text-3xl font-bold text-stone-100 mt-2">Challenge Benchmarks</h2>
-      <p class="text-stone-400 text-sm mt-3 leading-relaxed">
-        We do not verify members through fees. We verify through trials.
-      </p>
-    </div>
-
-    <!-- The Entry Gate Requirement -->
-    <div class="p-6 bg-amber-950/10 border border-amber-500/30 rounded-lg mb-12">
-      <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
-        <div>
-          <span class="text-xs font-bold text-amber-500 uppercase tracking-wider">Mandatory Entry Requirement</span>
-          <h3 class="title-font text-xl font-bold text-stone-100 mt-1">The 21-Day Squire's Protocol</h3>
-          <p class="text-xs text-stone-400 mt-1">Daily cold exposure (2 mins), 20-minute daily silent reflection, zero alcohol, and 5 workouts weekly.</p>
-        </div>
-        <a href="#join" class="px-5 py-2.5 bg-amber-500 hover:bg-amber-400 text-stone-950 font-semibold text-xs uppercase tracking-wider rounded whitespace-nowrap">
-          Begin Day 1
+    <!-- Sticky Minimal Navigation Bar -->
+    <header class="sticky top-0 z-50 bg-[#050505]/95 backdrop-blur border-b border-neutral-800 px-6 py-4">
+      <div class="max-w-5xl mx-auto flex justify-between items-center">
+        <a href="#gatehouse" class="title-font font-bold text-xs tracking-[0.3em] text-white">
+          VAEL'DAR
+        </a>
+        <nav class="hidden md:flex space-x-8 text-[11px] uppercase tracking-[0.2em] text-neutral-400 font-medium">
+          <a href="#about" class="hover:text-white transition-colors">About & Codex</a>
+          <a href="#join" class="hover:text-white transition-colors">How To Join</a>
+          <a href="#fireside" class="hover:text-white transition-colors">Daily Stories</a>
+          <a href="#challenges" class="hover:text-white transition-colors">Challenges</a>
+          <a href="#community" class="hover:text-white transition-colors">Community</a>
+        </nav>
+        <a href="#join" class="px-4 py-1.5 border border-neutral-600 hover:border-white text-[11px] uppercase tracking-widest text-neutral-200 hover:text-white transition-all">
+          Initiate
         </a>
       </div>
-    </div>
+    </header>
 
-    <!-- The Open Challenge Pool -->
-    <h3 class="title-font text-lg font-bold text-stone-200 mb-6">The Open Challenge Pool</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="p-5 bg-stone-900/40 border border-stone-800 rounded">
-        <span class="text-[10px] uppercase font-bold text-stone-500">Endurance</span>
-        <h4 class="text-sm font-semibold text-stone-200 mt-1">20km Weighted Ruck</h4>
-        <p class="text-xs text-stone-400 mt-1">Carry 20kg over 20 kilometers in under 4 hours. No headphones.</p>
-      </div>
-      <div class="p-5 bg-stone-900/40 border border-stone-800 rounded">
-        <span class="text-[10px] uppercase font-bold text-stone-500">Mental</span>
-        <h4 class="text-sm font-semibold text-stone-200 mt-1">24-Hour Digital Blackout</h4>
-        <p class="text-xs text-stone-400 mt-1">Zero phones, computers, or media. Total solitude and notebook writing only.</p>
-      </div>
-      <div class="p-5 bg-stone-900/40 border border-stone-800 rounded">
-        <span class="text-[10px] uppercase font-bold text-stone-500">Cardio Threshold</span>
-        <h4 class="text-sm font-semibold text-stone-200 mt-1">5,000m Row Benchmark</h4>
-        <p class="text-xs text-stone-400 mt-1">Complete 5,000m on Concept2 ergometer at maximum sustained wattage.</p>
-      </div>
-      <div class="p-5 bg-stone-900/40 border border-stone-800 rounded">
-        <span class="text-[10px] uppercase font-bold text-stone-500">Resilience</span>
-        <h4 class="text-sm font-semibold text-stone-200 mt-1">36-Hour Water Fast</h4>
-        <p class="text-xs text-stone-400 mt-1">Water and electrolytes only. Operating normally through daily responsibilities.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ========================================================================= -->
-  <!-- 5. COMMUNITY EXCHANGE (FORUM FEED) -->
-  <!-- ========================================================================= -->
-  <section id="community" class="py-24 px-6 max-w-4xl mx-auto">
-    <div class="text-center max-w-2xl mx-auto mb-12">
-      <span class="text-xs uppercase tracking-widest text-amber-500 font-semibold">Section 05</span>
-      <h2 class="title-font text-3xl font-bold text-stone-100 mt-2">Community Exchange</h2>
-      <p class="text-stone-400 text-sm mt-3 leading-relaxed">
-        An unvarnished feed where members log completed trials, share tactics, and hold the line.
-      </p>
-    </div>
-
-    <!-- Mock Post Feed -->
-    <div class="space-y-4">
-      <!-- Post 1 -->
-      <div class="p-5 bg-stone-900/40 border border-stone-800 rounded-lg">
-        <div class="flex items-center justify-between mb-2">
-          <div class="flex items-center space-x-2">
-            <span class="text-xs font-bold text-stone-200">Kenshi_TK</span>
-            <span class="text-[10px] text-amber-500 border border-amber-500/30 px-2 py-0.5 rounded">Weapon: Rucking</span>
-          </div>
-          <span class="text-[11px] text-stone-500">2 hours ago</span>
-        </div>
-        <p class="text-xs text-stone-300 leading-relaxed">
-          Completed Day 14 of the Squire's Protocol. Nearly bailed on the 5 AM cold shower due to travel fatigue. Took the hit anyway. Momentum preserved.
+    <!-- 1. ABOUT US & THE CODEX -->
+    <section id="about" class="py-24 px-6 max-w-4xl mx-auto border-b border-neutral-900">
+      <div class="mb-16">
+        <span class="text-[11px] uppercase tracking-[0.3em] text-neutral-500 font-semibold block mb-2">Section 01 // Foundation</span>
+        <h2 class="title-font text-2xl sm:text-3xl font-bold text-white tracking-wider">Why We Exist</h2>
+        <p class="text-neutral-400 text-sm mt-4 leading-relaxed font-light">
+          Modern comfort removes physical survival threats while multiplying digital isolation, chronic anxiety, and quiet aimlessness. People wear themselves out in gyms without moral purpose, or seek purpose in ancient dogmas that no longer fit the modern arena. We synthesize physical grit, cognitive stillness, and earned brotherhood without religious baggage.
         </p>
-        <div class="mt-3 flex gap-4 text-[11px] text-stone-500">
-          <span>&bull; 18 Knights Verified</span>
-          <span>&bull; 4 Replies</span>
+      </div>
+
+      <!-- Problem vs Mission -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-px bg-neutral-900 border border-neutral-900 mb-16">
+        <div class="p-8 bg-[#050505]">
+          <h3 class="title-font text-sm font-bold text-white uppercase tracking-wider mb-3">The Internal Adversary</h3>
+          <p class="text-xs text-neutral-400 leading-relaxed font-light">
+            The modern war is not waged against foreign borders. It is fought alone in mundane decisions against procrastination, self-deception, fear of discomfort, and addiction to stimulation.
+          </p>
+        </div>
+        <div class="p-8 bg-[#050505]">
+          <h3 class="title-font text-sm font-bold text-white uppercase tracking-wider mb-3">The Purpose</h3>
+          <p class="text-xs text-neutral-400 leading-relaxed font-light">
+            We pair high-friction physical crucibles with an unbending moral standard. First, establish sovereignty over your own mind. Then, use that strength to protect and mentor those lost in the dark.
+          </p>
         </div>
       </div>
 
-      <!-- Post 2 -->
-      <div class="p-5 bg-stone-900/40 border border-stone-800 rounded-lg">
-        <div class="flex items-center justify-between mb-2">
-          <div class="flex items-center space-x-2">
-            <span class="text-xs font-bold text-stone-200">Marcus_V</span>
-            <span class="text-[10px] text-amber-500 border border-amber-500/30 px-2 py-0.5 rounded">Weapon: Ergometer</span>
+      <!-- The 7 Principles -->
+      <div>
+        <h3 class="title-font text-lg font-bold text-white tracking-widest mb-6">The Seven Principles (The Codex)</h3>
+        <div class="border-t border-neutral-900">
+          <div class="py-4 border-b border-neutral-900 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+            <span class="text-xs text-neutral-500 font-mono sm:w-16">01 //</span>
+            <span class="text-sm font-semibold text-white sm:w-1/3">Guardian of Possibility</span>
+            <span class="text-xs text-neutral-400 font-light sm:w-1/2">Defend latent potential in others and forge paths where none exist.</span>
           </div>
-          <span class="text-[11px] text-stone-500">5 hours ago</span>
+          <div class="py-4 border-b border-neutral-900 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+            <span class="text-xs text-neutral-500 font-mono sm:w-16">02 //</span>
+            <span class="text-sm font-semibold text-white sm:w-1/3">Rational Conviction</span>
+            <span class="text-xs text-neutral-400 font-light sm:w-1/2">Trust daily compounding discipline over fleeting feelings of self-doubt.</span>
+          </div>
+          <div class="py-4 border-b border-neutral-900 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+            <span class="text-xs text-neutral-500 font-mono sm:w-16">03 //</span>
+            <span class="text-sm font-semibold text-white sm:w-1/3">Abandonment of Ego</span>
+            <span class="text-xs text-neutral-400 font-light sm:w-1/2">Prioritize quiet execution and service above corporate vanity and hollow status.</span>
+          </div>
+          <div class="py-4 border-b border-neutral-900 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+            <span class="text-xs text-neutral-500 font-mono sm:w-16">04 //</span>
+            <span class="text-sm font-semibold text-white sm:w-1/3">Transferable Mastery</span>
+            <span class="text-xs text-neutral-400 font-light sm:w-1/2">Mastery in physical grit transfers directly to business, leadership, and crisis.</span>
+          </div>
+          <div class="py-4 border-b border-neutral-900 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+            <span class="text-xs text-neutral-500 font-mono sm:w-16">05 //</span>
+            <span class="text-sm font-semibold text-white sm:w-1/3">Action Despite Fear</span>
+            <span class="text-xs text-neutral-400 font-light sm:w-1/2">Courage is deliberate movement forward while looking fear directly in the eyes.</span>
+          </div>
+          <div class="py-4 border-b border-neutral-900 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+            <span class="text-xs text-neutral-500 font-mono sm:w-16">06 //</span>
+            <span class="text-sm font-semibold text-white sm:w-1/3">Total Integrity</span>
+            <span class="text-xs text-neutral-400 font-light sm:w-1/2">Your word is an absolute bond. Stand by commitments even when private.</span>
+          </div>
+          <div class="py-4 border-b border-neutral-900 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+            <span class="text-xs text-neutral-500 font-mono sm:w-16">07 //</span>
+            <span class="text-sm font-semibold text-white sm:w-1/3">Earned Brotherhood</span>
+            <span class="text-xs text-neutral-400 font-light sm:w-1/2">Genuine solidarity is built through shared friction, never casual networking.</span>
+          </div>
         </div>
-        <p class="text-xs text-stone-300 leading-relaxed">
-          Log on the 5,000m row test: Finished in 18:42. Pace collapsed between 2,500m and 3,500m because of sloppy breath control. Re-running the attempt this Saturday.
+      </div>
+    </section>
+
+    <!-- 2. HOW TO JOIN & ASSESSMENT -->
+    <section id="join" class="py-24 px-6 max-w-4xl mx-auto border-b border-neutral-900">
+      <div class="mb-12">
+        <span class="text-[11px] uppercase tracking-[0.3em] text-neutral-500 font-semibold block mb-2">Section 02 // Initiation</span>
+        <h2 class="title-font text-2xl sm:text-3xl font-bold text-white tracking-wider">Declare Your Weapon</h2>
+        <p class="text-neutral-400 text-sm mt-3 leading-relaxed font-light">
+          Membership cannot be bought. Identify your internal adversary, match your operational mindset, and declare your primary somatic discipline.
         </p>
-        <div class="mt-3 flex gap-4 text-[11px] text-stone-500">
-          <span>&bull; 26 Knights Verified</span>
-          <span>&bull; 9 Replies</span>
+      </div>
+
+      <div class="p-8 border border-neutral-800 bg-[#080808]">
+        <form id="assessmentForm" onsubmit="event.preventDefault(); submitAssessment();" class="space-y-6">
+          <div>
+            <label class="block text-[11px] uppercase tracking-widest text-neutral-400 font-semibold mb-2">1. Primary Adversary</label>
+            <select id="adversary" class="w-full bg-[#050505] border border-neutral-800 p-3 text-xs text-neutral-200 focus:border-white focus:outline-none">
+              <option value="distraction">Constant Distraction & Erosion of Focus</option>
+              <option value="complacency">Complacency & Comfortable Mediocrity</option>
+              <option value="anxiety">Internal Anxiety & Overthinking</option>
+              <option value="isolation">Isolation & Lack of Accountable Peers</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[11px] uppercase tracking-widest text-neutral-400 font-semibold mb-2">2. Operating Philosophy</label>
+            <select id="philosophy" class="w-full bg-[#050505] border border-neutral-800 p-3 text-xs text-neutral-200 focus:border-white focus:outline-none">
+              <option value="stoic">Stoicism (Focus strictly on what is within your control)</option>
+              <option value="bushido">Bushidō (Uncompromising duty, honor, and action)</option>
+              <option value="zen">Zen & Stillness (Clarity through breath and detachment)</option>
+              <option value="pragmatic">Strict Secular Pragmatism (Verified compounding output)</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[11px] uppercase tracking-widest text-neutral-400 font-semibold mb-2">3. Declare Your Weapon (Primary Physical Crucible)</label>
+            <select id="weapon" class="w-full bg-[#050505] border border-neutral-800 p-3 text-xs text-neutral-200 focus:border-white focus:outline-none">
+              <option value="rucking">Weighted Rucking & Trail Marches</option>
+              <option value="rowing">Ergometer Rowing (Threshold cardio)</option>
+              <option value="martial">Martial Arts (Combat sparring & grappling)</option>
+              <option value="cold">Thermal Shock & Cold Immersion</option>
+              <option value="solitude">Extended Silent Vigils & Fasting</option>
+            </select>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-[11px] uppercase tracking-widest text-neutral-400 font-semibold mb-2">Name or Alias</label>
+              <input type="text" id="applicantName" required placeholder="e.g., Kenshi" class="w-full bg-[#050505] border border-neutral-800 p-3 text-xs text-neutral-200 focus:border-white focus:outline-none" />
+            </div>
+            <div>
+              <label class="block text-[11px] uppercase tracking-widest text-neutral-400 font-semibold mb-2">Email Address</label>
+              <input type="email" id="applicantEmail" required placeholder="you@domain.com" class="w-full bg-[#050505] border border-neutral-800 p-3 text-xs text-neutral-200 focus:border-white focus:outline-none" />
+            </div>
+          </div>
+
+          <button type="submit" class="w-full py-4 bg-white text-black font-bold title-font text-xs uppercase tracking-[0.25em] hover:bg-neutral-200 transition-all">
+            Commit Profile & Begin 21-Day Squire's Trial
+          </button>
+        </form>
+
+        <div id="assessmentResult" class="hidden mt-8 p-6 border border-neutral-700 bg-[#050505] text-center">
+          <span class="text-[10px] uppercase tracking-[0.3em] text-neutral-400 font-bold block mb-1">Dossier Locked</span>
+          <h4 id="resultTitle" class="title-font text-lg text-white font-bold"></h4>
+          <p id="resultDesc" class="text-xs text-neutral-400 mt-2 font-light leading-relaxed max-w-lg mx-auto"></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. DAILY STORIES (THE FIRESIDE) -->
+    <section id="fireside" class="py-24 px-6 max-w-4xl mx-auto border-b border-neutral-900">
+      <div class="mb-12">
+        <span class="text-[11px] uppercase tracking-[0.3em] text-neutral-500 font-semibold block mb-2">Section 03 // Dispatches</span>
+        <h2 class="title-font text-2xl sm:text-3xl font-bold text-white tracking-wider">The Fireside</h2>
+        <p class="text-neutral-400 text-sm mt-3 leading-relaxed font-light">
+          Daily case studies translating dry philosophy into civilian dilemmas.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="p-6 border border-neutral-800 bg-[#080808] flex flex-col justify-between">
+          <div>
+            <span class="text-[10px] font-mono text-neutral-500 block mb-3">DISPATCH #42</span>
+            <h3 class="font-semibold text-white text-sm mb-2">The 5:00 AM Negotiator</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed font-light">
+              The mind does not rebel with noise; it uses gentle, reasonable excuses. How to identify the rationalization loop before your feet touch the floor.
+            </p>
+          </div>
+          <a href="#about" class="text-xs text-neutral-200 hover:text-white font-semibold mt-4 block underline">Read Dispatch &rarr;</a>
+        </article>
+
+        <article class="p-6 border border-neutral-800 bg-[#080808] flex flex-col justify-between">
+          <div>
+            <span class="text-[10px] font-mono text-neutral-500 block mb-3">DISPATCH #41</span>
+            <h3 class="font-semibold text-white text-sm mb-2">The Boardroom Blade</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed font-light">
+              When corporate politics demand passive agreement, integrity demands steady truth. Standing firm without burning the ship.
+            </p>
+          </div>
+          <a href="#about" class="text-xs text-neutral-200 hover:text-white font-semibold mt-4 block underline">Read Dispatch &rarr;</a>
+        </article>
+
+        <article class="p-6 border border-neutral-800 bg-[#080808] flex flex-col justify-between">
+          <div>
+            <span class="text-[10px] font-mono text-neutral-500 block mb-3">DISPATCH #40</span>
+            <h3 class="font-semibold text-white text-sm mb-2">The Fatigue Threshold</h3>
+            <p class="text-xs text-neutral-400 leading-relaxed font-light">
+              On kilometer 18 of a weighted march, false pride dissolves. Why voluntary fatigue is the quickest tool to expose your authentic self.
+            </p>
+          </div>
+          <a href="#about" class="text-xs text-neutral-200 hover:text-white font-semibold mt-4 block underline">Read Dispatch &rarr;</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- 4. CHALLENGES & BENCHMARKS -->
+    <section id="challenges" class="py-24 px-6 max-w-4xl mx-auto border-b border-neutral-900">
+      <div class="mb-12">
+        <span class="text-[11px] uppercase tracking-[0.3em] text-neutral-500 font-semibold block mb-2">Section 04 // Trials</span>
+        <h2 class="title-font text-2xl sm:text-3xl font-bold text-white tracking-wider">The Standard of Victory</h2>
+        <p class="text-neutral-400 text-sm mt-3 leading-relaxed font-light">
+          We verify credentials through physical suffering and discipline, not membership fees.
+        </p>
+      </div>
+
+      <!-- Mandatory Entry Trial -->
+      <div class="p-8 border border-neutral-700 bg-neutral-950 mb-12">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div>
+            <span class="text-[10px] font-mono uppercase tracking-widest text-neutral-400 block mb-1">Prerequisite Entry Trial</span>
+            <h3 class="title-font text-xl font-bold text-white">The 21-Day Squire's Protocol</h3>
+            <p class="text-xs text-neutral-400 mt-2 leading-relaxed font-light max-w-xl">
+              2 minutes of daily ice-cold showers, 20 minutes of morning silent meditation, zero alcohol, and 5 intense physical sessions per week.
+            </p>
+          </div>
+          <a href="#join" class="px-6 py-3 bg-white text-black font-semibold text-xs uppercase tracking-widest whitespace-nowrap hover:bg-neutral-200">
+            Begin Day 1
+          </a>
         </div>
       </div>
 
-      <!-- Create Post Mock Trigger -->
-      <div class="pt-4 text-center">
-        <button onclick="alert('You must complete the 21-Day Squire Protocol before posting to the public forum.');" class="px-6 py-2.5 border border-stone-700 hover:border-amber-500/60 rounded text-xs uppercase tracking-wider text-stone-400 hover:text-stone-200 transition-all">
-          Log Your Report (Verified Members)
-        </button>
+      <!-- Open Challenge Grid -->
+      <h3 class="title-font text-sm font-bold text-white tracking-widest uppercase mb-6">The Open Trial Pool</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div class="p-5 border border-neutral-900 bg-[#080808]">
+          <span class="text-[10px] uppercase font-mono text-neutral-500">Somatic Endurance</span>
+          <h4 class="text-sm font-semibold text-white mt-1">20km Weighted Ruck</h4>
+          <p class="text-xs text-neutral-400 mt-1 font-light">Carry 20kg over 20 kilometers in under 4 hours. No audio, no music.</p>
+        </div>
+        <div class="p-5 border border-neutral-900 bg-[#080808]">
+          <span class="text-[10px] uppercase font-mono text-neutral-500">Cognitive Stillness</span>
+          <h4 class="text-sm font-semibold text-white mt-1">24-Hour Digital Blackout</h4>
+          <p class="text-xs text-neutral-400 mt-1 font-light">Zero screens, zero cellular connection. Total solitude and paper notebook writing.</p>
+        </div>
+        <div class="p-5 border border-neutral-900 bg-[#080808]">
+          <span class="text-[10px] uppercase font-mono text-neutral-500">Cardio Threshold</span>
+          <h4 class="text-sm font-semibold text-white mt-1">5,000m Row Benchmark</h4>
+          <p class="text-xs text-neutral-400 mt-1 font-light">Complete 5,000m on Concept2 ergometer at maximum sustained wattage.</p>
+        </div>
+        <div class="p-5 border border-neutral-900 bg-[#080808]">
+          <span class="text-[10px] uppercase font-mono text-neutral-500">Appetite Command</span>
+          <h4 class="text-sm font-semibold text-white mt-1">36-Hour Water Fast</h4>
+          <p class="text-xs text-neutral-400 mt-1 font-light">Only water and electrolytes while operating normally through standard daily work.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ========================================================================= -->
-  <!-- FOOTER -->
-  <!-- ========================================================================= -->
-  <footer class="py-12 px-6 border-t border-stone-900 text-center text-xs text-stone-600">
-    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-      <span class="title-font tracking-widest text-stone-400">KNIGHT ORDER OF VAEL'DAR</span>
-      <p>&copy; 2026 knightsofvaeldar.com. All rights reserved.</p>
-      <a href="#gate" class="text-stone-500 hover:text-stone-300">Back to Top &uarr;</a>
-    </div>
-  </footer>
+    <!-- 5. COMMUNITY FORUM -->
+    <section id="community" class="py-24 px-6 max-w-4xl mx-auto">
+      <div class="mb-12">
+        <span class="text-[11px] uppercase tracking-[0.3em] text-neutral-500 font-semibold block mb-2">Section 05 // Forum</span>
+        <h2 class="title-font text-2xl sm:text-3xl font-bold text-white tracking-wider">War Reports</h2>
+        <p class="text-neutral-400 text-sm mt-3 leading-relaxed font-light">
+          An open ledger where verified initiates log their daily battles and maintain accountability.
+        </p>
+      </div>
 
-  <!-- Simple Logic for Assessment -->
+      <div class="space-y-4">
+        <div class="p-6 border border-neutral-900 bg-[#080808]">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center space-x-3">
+              <span class="text-xs font-bold text-white font-mono">KENSHI_TK</span>
+              <span class="text-[10px] uppercase tracking-wider text-neutral-400 border border-neutral-800 px-2 py-0.5">Weapon: Rucking</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 font-mono">2h ago</span>
+          </div>
+          <p class="text-xs text-neutral-300 font-light leading-relaxed">
+            Day 14 of the Squire's Protocol. Nearly bailed on the 5 AM cold plunge due to travel fatigue. Took the hit anyway. Momentum preserved.
+          </p>
+          <div class="mt-4 text-[11px] text-neutral-500 font-mono flex gap-4 border-t border-neutral-900 pt-3">
+            <span>&bull; 18 Knights Verified</span>
+            <span>&bull; 4 Responses</span>
+          </div>
+        </div>
+
+        <div class="p-6 border border-neutral-900 bg-[#080808]">
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center space-x-3">
+              <span class="text-xs font-bold text-white font-mono">MARCUS_V</span>
+              <span class="text-[10px] uppercase tracking-wider text-neutral-400 border border-neutral-800 px-2 py-0.5">Weapon: Ergometer</span>
+            </div>
+            <span class="text-[11px] text-neutral-600 font-mono">6h ago</span>
+          </div>
+          <p class="text-xs text-neutral-300 font-light leading-relaxed">
+            5,000m row test: Finished in 18:42. Pace collapsed between 2,500m and 3,500m due to sloppy breath control. Re-running the attempt this Saturday.
+          </p>
+          <div class="mt-4 text-[11px] text-neutral-500 font-mono flex gap-4 border-t border-neutral-900 pt-3">
+            <span>&bull; 26 Knights Verified</span>
+            <span>&bull; 9 Responses</span>
+          </div>
+        </div>
+
+        <div class="pt-6 text-center">
+          <button onclick="alert('You must complete the 21-Day Squire Protocol before posting to the public forum.');" class="px-8 py-3 border border-neutral-700 hover:border-white text-xs uppercase tracking-widest text-neutral-400 hover:text-white transition-all">
+            Submit War Report (Verified Only)
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="py-12 px-6 border-t border-neutral-900 text-[11px] text-neutral-600">
+      <div class="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+        <span class="title-font tracking-widest text-neutral-400">KNIGHT ORDER OF VAEL'DAR</span>
+        <p>&copy; 2026 knightsofvaeldar.com</p>
+        <a href="#gatehouse" class="text-neutral-500 hover:text-neutral-300">Return to Gate &uarr;</a>
+      </div>
+    </footer>
+  </div>
+
+  <!-- INTERACTION SCRIPT -->
   <script>
+    function unlockPortal() {
+      const stronghold = document.getElementById('stronghold');
+      stronghold.classList.remove('hidden');
+      setTimeout(() => {
+        stronghold.classList.remove('opacity-0');
+        document.getElementById('about').scrollIntoView({ behavior: 'smooth' });
+      }, 50);
+    }
+
     function submitAssessment() {
       const name = document.getElementById('applicantName').value;
       const adversary = document.getElementById('adversary').options[document.getElementById('adversary').selectedIndex].text;
       const weapon = document.getElementById('weapon').options[document.getElementById('weapon').selectedIndex].text;
       
-      document.getElementById('resultTitle').innerText = name + " — Initiate Dossier";
-      document.getElementById('resultDesc').innerText = "Targeted Adversary: " + adversary + ". Declared Weapon: " + weapon + ". Your 21-day trial calendar has been provisioned.";
+      document.getElementById('resultTitle').innerText = name.toUpperCase() + " // INITIATE PROFILE RECORDED";
+      document.getElementById('resultDesc').innerText = "Targeted Adversary: " + adversary + ". Declared Weapon: " + weapon + ". Your 21-Day Squire Protocol has commenced.";
       document.getElementById('assessmentResult').classList.remove('hidden');
       document.getElementById('assessmentResult').scrollIntoView({ behavior: 'smooth' });
     }
