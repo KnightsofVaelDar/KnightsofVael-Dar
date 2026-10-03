@@ -22,7 +22,7 @@ button { font:inherit; cursor:pointer; border:none; background:none; color:inher
 }
 #gatehouse.is-passed { display:none; }
 .gate__core { max-width:36rem; display:flex; flex-direction:column; align-items:center; }
-.gate__logo { width:9rem; height:9rem; object-fit:contain; margin-bottom:1.5rem; filter:drop-shadow(0 0 16px rgba(255,255,255,.15)); }
+.gate__logo { width:11rem; height:11rem; object-fit:contain; margin-bottom:1.5rem; filter:invert(1) grayscale(1) contrast(1.15); mix-blend-mode:screen; -webkit-mask-image:radial-gradient(circle at center,#000 58%,transparent 72%); mask-image:radial-gradient(circle at center,#000 58%,transparent 72%); }
 .gate__title {
   font-family:var(--font-d); font-weight:700; color:var(--fg);
   font-size:clamp(1.35rem,4vw,2rem); letter-spacing:.28em; text-transform:uppercase;
@@ -231,11 +231,11 @@ form button {
   <section id="stories" class="section section--wide">
     <p class="kicker">05 — Daily Stories</p>
     <h2>Fireside Dispatches</h2>
-    <p>Short field notes from the forge. Interim samples.</p>
-    <div class="grid3" style="margin-top:1.5rem">
-      <article class="card"><p class="roots">Dispatch 01 · Dawn</p><h3>Before the City Wakes</h3><p>Three miles under load. No music. Named the urge to quit on mile two — then finished under silence.</p></article>
-      <article class="card"><p class="roots">Dispatch 02 · Midday</p><h3>The Meeting Held</h3><p>Hard conversation at work. Chose the honest line — shorter, cleaner, heavier. Honor is cheaper than repair.</p></article>
-      <article class="card"><p class="roots">Dispatch 03 · Night</p><h3>Anchor for One</h3><p>Brother called after a bad week. Did not fix him. Stayed on the line until his breath slowed.</p></article>
+    <p>Fireside Dispatches are short accounts from knights of the Order, written after a day's battle with the war within. Each one records a moment of struggle, the choice that was made, and what it taught. They are shared so that no knight walks the path alone, and so that those still in the dark can see how the fight is fought.</p>
+    <div class="card dossier-card--soon" style="margin-top:1.5rem;text-align:center;padding:2.5rem 1.25rem">
+      <p class="roots">Coming soon</p>
+      <h3 style="margin:0 0 .5rem">The first dispatches are being written</h3>
+      <p style="margin:0">Stay tuned.</p>
     </div>
   </section>
 
