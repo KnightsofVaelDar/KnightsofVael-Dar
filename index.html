@@ -22,7 +22,7 @@ button { font:inherit; cursor:pointer; border:none; background:none; color:inher
 }
 #gatehouse.is-passed { display:none; }
 .gate__core { max-width:36rem; display:flex; flex-direction:column; align-items:center; }
-.gate__logo { width:9rem; height:9rem; margin-bottom:1.5rem; filter:drop-shadow(0 0 16px rgba(255,255,255,.15)); }
+.gate__logo { width:9rem; height:9rem; object-fit:contain; margin-bottom:1.5rem; filter:drop-shadow(0 0 16px rgba(255,255,255,.15)); }
 .gate__title {
   font-family:var(--font-d); font-weight:700; color:var(--fg);
   font-size:clamp(1.35rem,4vw,2rem); letter-spacing:.28em; text-transform:uppercase;
@@ -87,26 +87,21 @@ form button {
 .hub-nav { display:flex; flex-wrap:wrap; gap:.5rem; list-style:none; padding:1.5rem 0 0; margin:0; border-top:1px solid var(--line); }
 .hub-nav a { font-family:var(--font-d); font-size:.6875rem; letter-spacing:.18em; text-transform:uppercase; border:1px solid var(--line); padding:.5rem .75rem; }
 .hub-nav a:hover { border-color:var(--fg); color:var(--fg); }
+.dossier-card { display:block; border:1px solid var(--fg); padding:1.5rem; transition:background .2s; }
+.dossier-card:hover { background:#0a0a0a; }
+.dossier-card h3 { margin:0 0 .5rem; }
+.dossier-card p { margin:0 0 .75rem; }
+.dossier-card .go { font-size:.6875rem; letter-spacing:.18em; text-transform:uppercase; color:var(--fg); }
+.dossier-card--soon { border-color:var(--line); opacity:.55; }
+.roots a { color:var(--fg); border-bottom:1px solid var(--line); }
+.roots a:hover { border-bottom-color:var(--fg); }
 </style>
 </head>
 <body>
 
 <section id="gatehouse" aria-label="Gate">
   <div class="gate__core">
-    <svg class="gate__logo" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-  <g fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round">
-    <path d="M100 18 L100 175"/>
-    <path d="M100 18 L92 40 L108 40 Z"/>
-    <path d="M78 48 L122 48"/>
-    <path d="M100 55 L55 75 L55 115 C55 145 75 168 100 178 C125 168 145 145 145 115 L145 75 Z"/>
-    <path d="M100 70 L100 150" stroke-width="1.5"/>
-    <circle cx="100" cy="95" r="8" stroke-width="1.5"/>
-    <g stroke-width="1.2" opacity="0.7">
-      <path d="M40 90 L20 70 M35 110 L12 115 M45 130 L22 145"/>
-      <path d="M160 90 L180 70 M165 110 L188 115 M155 130 L178 145"/>
-    </g>
-  </g>
-</svg>
+    <img class="gate__logo" src="logo-gate.png" alt="Vael'Dar sword and shield emblem"/>
     <h1 class="gate__title">Knight Order of Vael'Dar</h1>
     <div class="gate__mission">
       <p>We are knights of the order, bonded by struggle and the war within.</p>
@@ -127,6 +122,7 @@ form button {
         <a href="#mission">Mission</a>
         <a href="#concept">Concept</a>
         <a href="#codex">Codex</a>
+        <a href="#dossiers">Dossiers</a>
         <a href="#language">Language</a>
         <a href="#stories">Stories</a>
         <a href="#membership">Membership</a>
@@ -139,6 +135,7 @@ form button {
     <a href="#mission">Mission</a>
     <a href="#concept">Concept</a>
     <a href="#codex">Codex</a>
+    <a href="#dossiers">Dossiers</a>
     <a href="#language">Language</a>
     <a href="#stories">Stories</a>
     <a href="#membership">Membership</a>
@@ -152,6 +149,7 @@ form button {
       <li><a href="#mission">Mission</a></li>
       <li><a href="#concept">Concept</a></li>
       <li><a href="#codex">Codex</a></li>
+      <li><a href="#dossiers">Dossiers</a></li>
     </ul>
   </section>
 
@@ -177,7 +175,7 @@ form button {
     </ol>
     <p>The theme of light and dark, order and chaos, or clarity and corruption echoes across time.</p>
     <ul class="paths">
-      <li class="path"><span class="path-num">1</span><h3>Conquer, Transform, Integrate</h3><p>Chaos within is faced head-on, mastered or transformed into strength.</p><p class="roots">Stoicism · Ancient Egypt · Sumerian · Native American · Nietzsche · Jung · Nordic Vikings · Hindu Kshatriya · David Goggins</p></li>
+      <li class="path"><span class="path-num">1</span><h3>Conquer, Transform, Integrate</h3><p>Chaos within is faced head-on, mastered or transformed into strength.</p><p class="roots"><a href="roman-stoicism.html">Stoicism</a> · Ancient Egypt · Sumerian · Native American · Nietzsche · Jung · Nordic Vikings · Hindu Kshatriya · David Goggins</p></li>
       <li class="path"><span class="path-num">2</span><h3>Block, Resist, Fortify</h3><p>Evil perceived as external. Shield with faith, law and discipline.</p><p class="roots">Christianity · Islam · Hindu Bhakti</p></li>
       <li class="path"><span class="path-num">3</span><h3>Let go, Dissolve, Transcend</h3><p>Release chaos or attachment. Embrace flow or change.</p><p class="roots">Buddhism · Taoism · Advaita Vedanta</p></li>
     </ul>
@@ -194,6 +192,24 @@ form button {
       <li>I shall never betray my word, for it is the measure of my soul. My truth is decided by my heart's compass, not by the currents of the world.</li>
       <li>I shall walk the path of mastery with passion and courage as my fire. Only through a burning will can potential be realized.</li>
     </ol>
+  </section>
+
+  <section id="dossiers" class="section section--wide">
+    <h2>Tradition Dossiers</h2>
+    <p>Field studies of the traditions that fought the war within. Each dossier covers where the tradition was forged, how it orders the mind, its daily rituals, its canonical maxims, and where to read further.</p>
+    <div class="grid3" style="margin-top:1.5rem">
+      <a class="dossier-card" href="roman-stoicism.html">
+        <p class="roots">Category 1A · Conquer &amp; Subdue</p>
+        <h3>The Citadel of the Will</h3>
+        <p>The Roman Stoic discipline of Epictetus, Seneca, and Marcus Aurelius.</p>
+        <span class="go">Read the dossier</span>
+      </a>
+      <div class="dossier-card dossier-card--soon" aria-disabled="true">
+        <p class="roots">Category 1A · Coming soon</p>
+        <h3>The Sumerian Architect-King</h3>
+        <p>Gilgamesh and the conquest of the self.</p>
+      </div>
+    </div>
   </section>
 
   <section id="language" class="section section--wide">
@@ -276,6 +292,12 @@ form button {
     if(about) about.scrollIntoView({behavior:'smooth'});
   }
   if(enter) enter.addEventListener('click', unlock);
+  var target=location.hash&&document.getElementById(location.hash.slice(1));
+  if(target&&hold&&hold.contains(target)){
+    if(gate) gate.classList.add('is-passed');
+    hold.classList.add('is-open'); hold.removeAttribute('hidden');
+    setTimeout(function(){ target.scrollIntoView(); },0);
+  }
   window.unlockPortal=unlock;
   var toggle=document.getElementById('nav-toggle');
   var mobile=document.getElementById('nav-mobile');
