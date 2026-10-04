@@ -3,401 +3,344 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>The Citadel of the Will: Roman Stoicism | Knights of Vael'Dar</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<title>Knights of Vael'Dar | The Order</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet"/>
 <style>
-:root{--bg:#000;--fg:#fff;--body:#d4d4d4;--muted:#b0b0b0;--dim:#9a9a9a;--line:#3a3a3a;--panel:#0e0e0e;--d:"Cinzel",Georgia,serif;--b:Inter,system-ui,sans-serif}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--body);font-family:var(--b);font-weight:400;font-size:17px;line-height:1.7}
-a{color:inherit}
-button{font:inherit;cursor:pointer;color:inherit;background:none;border:none}
-#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--fg);z-index:100}
-.topbar{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.95);border-bottom:1px solid var(--line)}
-.topbar__in{max-width:72rem;margin:0 auto;padding:.9rem 1.5rem;display:flex;justify-content:space-between;align-items:center}
-.wordmark{font-family:var(--d);font-size:.75rem;letter-spacing:.28em;color:var(--fg);text-decoration:none}
-.topbar__crumb{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);text-decoration:none}
-.topbar__crumb:hover{color:var(--fg)}
-.layout{max-width:72rem;margin:0 auto;padding:0 1.5rem;display:grid;grid-template-columns:1fr;gap:3rem}
-@media(min-width:1024px){.layout{grid-template-columns:14rem minmax(0,42rem);justify-content:center}}
-.toc{display:none}
-@media(min-width:1024px){.toc{display:block;position:sticky;top:5rem;align-self:start;padding-top:4rem}}
-.toc__label{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:var(--dim);margin:0 0 1rem}
-.toc ol{list-style:none;margin:0;padding:0;border-left:1px solid var(--line)}
-.toc a{display:block;padding:.45rem 0 .45rem 1rem;margin-left:-1px;border-left:1px solid transparent;font-size:.8rem;color:var(--muted);text-decoration:none;line-height:1.4}
-.toc a:hover{color:var(--fg)}
-.toc a.is-active{color:var(--fg);border-left-color:var(--fg)}
-.toc-mobile{margin:1.5rem 0 0;border:1px solid var(--line)}
-@media(min-width:1024px){.toc-mobile{display:none}}
-.toc-mobile summary{padding:.8rem 1rem;font-size:.7rem;letter-spacing:.25em;text-transform:uppercase;color:var(--fg);cursor:pointer}
-.toc-mobile ol{margin:0;padding:0 1rem 1rem 2.2rem;font-size:.9rem}
-.toc-mobile a{text-decoration:none}
-article{padding:4rem 0 5rem;max-width:42rem}
-.chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.5rem}
-.chip{font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;padding:.4rem .7rem;border:1px solid var(--line);color:var(--muted)}
-.chip--primary{background:var(--fg);color:var(--bg);border-color:var(--fg);font-weight:600}
-h1{font-family:var(--d);color:var(--fg);font-size:clamp(1.8rem,5vw,2.6rem);letter-spacing:.08em;line-height:1.2;margin:0 0 .5rem}
-.subtitle{font-family:var(--d);color:var(--muted);letter-spacing:.2em;text-transform:uppercase;font-size:.85rem;margin:0 0 1.5rem}
-.meta{font-size:.8rem;color:var(--muted);letter-spacing:.05em;margin:0 0 2.5rem}
-.meta strong{color:var(--fg);font-weight:500}
-.stasis{position:relative;border-left:3px solid var(--fg);background:var(--panel);padding:1.6rem 1.6rem 1.4rem 1.8rem;margin:2rem 0}
-.stasis p{font-family:var(--d);color:var(--fg);font-size:1.25rem;line-height:1.5;margin:0 0 .8rem}
-.stasis cite{font-style:normal;font-size:.8rem;letter-spacing:.1em;color:var(--muted)}
-.copy{position:absolute;top:.8rem;right:.8rem;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;border:1px solid var(--line);padding:.35rem .6rem;color:var(--muted)}
-.copy:hover{border-color:var(--fg);color:var(--fg)}
-.copy.is-done{border-color:var(--fg);color:var(--fg)}
-.dossier{border:1px solid var(--line);margin:2rem 0}
-.dossier__row{display:grid;grid-template-columns:9rem 1fr;border-bottom:1px solid var(--line);font-size:.9rem}
-.dossier__row:last-child{border-bottom:none}
-.dossier__k{padding:.8rem 1rem;font-size:.65rem;letter-spacing:.2em;text-transform:uppercase;color:var(--dim);border-right:1px solid var(--line)}
-.dossier__v{padding:.8rem 1rem;color:var(--fg)}
-@media(max-width:520px){.dossier__row{grid-template-columns:1fr}.dossier__k{border-right:none;padding-bottom:0}}
-section{scroll-margin-top:5rem;padding-top:3.5rem;margin-top:3.5rem;border-top:1px solid var(--line)}
-.kicker{font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--dim);margin:0 0 .6rem}
-h2{font-family:var(--d);color:var(--fg);font-size:1.5rem;letter-spacing:.06em;line-height:1.3;margin:0 0 1.5rem}
-h3{font-family:var(--d);color:var(--fg);font-size:1.05rem;letter-spacing:.06em;margin:0 0 .6rem}
-p{margin:0 0 1.2rem}
-em{color:var(--fg)}
-.cards{display:grid;gap:1rem;margin:1.8rem 0}
-@media(min-width:640px){.cards--3{grid-template-columns:1fr 1fr 1fr}.cards--2{grid-template-columns:1fr 1fr}}
-.card{border:1px solid var(--line);padding:1.3rem;background:var(--panel)}
-.card__tag{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--dim);margin:0 0 .5rem}
-.card p{font-size:.9rem;margin:0}
-.flow{display:flex;flex-direction:column;align-items:center;gap:.4rem;margin:2rem 0 1rem;text-align:center}
-.flow__node{border:1px solid var(--line);padding:.8rem 1.4rem;min-width:16rem}
-.flow__node strong{display:block;font-family:var(--d);color:var(--fg);letter-spacing:.12em;font-size:.9rem}
-.flow__node span{font-size:.75rem;color:var(--muted)}
-.flow__node--core{border-color:var(--fg)}
-.flow__arrow{color:var(--dim);font-size:.9rem;line-height:1}
-.split{display:grid;gap:1rem;margin:0 0 2rem}
-@media(min-width:640px){.split{grid-template-columns:1fr 1fr}}
-.split__col{padding:1.3rem;border:1px solid var(--line)}
-.split__col--in{border:1px solid var(--fg)}
-.split__col--out{background:var(--panel);color:var(--muted)}
-.split__col h3{font-size:.85rem;letter-spacing:.18em;text-transform:uppercase}
-.split__col--out h3{color:var(--muted)}
-.split__col ul{margin:.6rem 0 1rem;padding-left:1.1rem;font-size:.9rem}
-.split__verdict{font-size:.65rem;letter-spacing:.3em;text-transform:uppercase}
-.split__col--in .split__verdict{color:var(--fg)}
-.term{font-size:.8rem;color:var(--muted);font-style:italic}
-.tabs{margin:2rem 0;border:1px solid var(--line)}
-.tabs__nav{display:flex;overflow-x:auto;border-bottom:1px solid var(--line)}
-.tab{flex:1 0 auto;padding:.9rem 1rem;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);border-bottom:2px solid transparent;white-space:nowrap}
-.tab[aria-selected="true"]{color:var(--fg);border-bottom-color:var(--fg)}
-.tab:hover{color:var(--fg)}
-.panel{padding:1.6rem}
-.panel[hidden]{display:none}
-.panel__label{font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--dim);margin:1.2rem 0 .4rem}
-.panel__label:first-of-type{margin-top:0}
-.mantra{position:relative;border-left:3px solid var(--fg);background:var(--panel);padding:1.2rem 1.4rem;margin:1rem 0 0}
-.mantra p{color:var(--fg);font-style:italic;margin:0;padding-right:4.5rem}
-.checklist{list-style:none;padding:0;margin:.8rem 0 0}
-.checklist li{display:flex;gap:.7rem;align-items:flex-start;padding:.6rem 0;border-bottom:1px solid var(--line);font-size:.95rem}
-.checklist input{margin-top:.35rem;accent-color:#fff}
-.decree{border:1px solid var(--fg);padding:2rem 1.6rem;text-align:center;margin:2rem 0;position:relative}
-.decree__label{font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--dim);margin:0 0 1rem}
-.decree p.decree__text{font-family:var(--d);color:var(--fg);font-size:1.15rem;line-height:1.6;margin:0}
-.library{list-style:none;padding:0;margin:1rem 0}
-.library li{padding:.9rem 0;border-bottom:1px solid var(--line);font-size:.95rem}
-.library strong{color:var(--fg);font-weight:500}
-.library span{color:var(--muted);font-size:.85rem}
-@media(min-width:640px){.terminal__grid{grid-template-columns:1fr 1fr}}
-footer{border-top:1px solid var(--line);padding:2.5rem 1.5rem;text-align:center;font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--dim)}
-footer a{text-decoration:none}
-:focus-visible{outline:2px solid var(--fg);outline-offset:3px}
+:root {
+  --bg:#000; --fg:#fff; --body:#d4d4d4; --muted:#b0b0b0; --dim:#9a9a9a; --line:#3a3a3a; --panel:#0e0e0e;
+  --font-d:"Cinzel",Georgia,serif; --font-b:Inter,system-ui,sans-serif;
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; background:var(--bg); color:var(--body); font-family:var(--font-b); font-weight:400; line-height:1.65; }
+a { color:inherit; text-decoration:none; }
+button { font:inherit; cursor:pointer; border:none; background:none; color:inherit; }
+#gatehouse {
+  min-height:100vh; min-height:100dvh; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center;
+  padding:3rem 1.5rem 2rem; gap:2rem;
+}
+#gatehouse.is-passed { display:none; }
+.gate__core { max-width:36rem; display:flex; flex-direction:column; align-items:center; }
+.gate__logo { width:11rem; height:11rem; object-fit:contain; margin-bottom:1.5rem; filter:invert(1) grayscale(1) contrast(1.15); mix-blend-mode:screen; -webkit-mask-image:radial-gradient(circle at center,#000 58%,transparent 72%); mask-image:radial-gradient(circle at center,#000 58%,transparent 72%); }
+.gate__title {
+  font-family:var(--font-d); font-weight:700; color:var(--fg);
+  font-size:clamp(1.35rem,4vw,2rem); letter-spacing:.28em; text-transform:uppercase;
+  margin:0 0 1.5rem; line-height:1.25;
+}
+.gate__mission { font-weight:400; font-size:.875rem; margin:0 0 2rem; max-width:36rem; }
+.gate__mission p { margin:0 0 1rem; }
+.gate__cta {
+  font-family:var(--font-d); font-size:.75rem; letter-spacing:.28em; text-transform:uppercase;
+  padding:1rem 1.5rem; border:1px solid var(--fg); background:var(--fg); color:var(--bg);
+}
+.gate__cta:hover { background:transparent; color:var(--fg); }
+.gate__foot {
+  margin-top:auto; padding-top:1rem; border-top:1px solid var(--line); width:100%; max-width:64rem;
+  font-size:.625rem; letter-spacing:.4em; text-transform:uppercase; color:var(--dim);
+}
+#stronghold { display:none; }
+#stronghold.is-open { display:block; }
+.site-header {
+  position:sticky; top:0; z-index:50; background:rgba(0,0,0,.95);
+  border-bottom:1px solid var(--line); display:flex; align-items:center; min-height:3.75rem;
+}
+.site-header__inner {
+  width:100%; max-width:76rem; margin:0 auto; padding:.75rem 1.5rem;
+  display:flex; align-items:center; justify-content:space-between; gap:1rem;
+}
+.wordmark { font-family:var(--font-d); font-size:.75rem; letter-spacing:.28em; color:var(--fg); text-transform:uppercase; }
+.nav-global { display:none; gap:1.25rem; font-size:.6875rem; letter-spacing:.18em; text-transform:uppercase; font-weight:600; }
+.nav-global a:hover { color:var(--fg); }
+.nav-global a { white-space:nowrap; }
+@media(min-width:1100px){ .nav-global { display:flex; } .nav-toggle { display:none; } }
+.nav-toggle { width:2.5rem; height:2.5rem; border:1px solid var(--line); }
+.nav-mobile { display:none; flex-direction:column; gap:1rem; padding:1.5rem; border-bottom:1px solid var(--line); font-size:.6875rem; letter-spacing:.18em; text-transform:uppercase; font-weight:600; }
+.nav-mobile.is-open { display:flex; }
+.section { max-width:40rem; margin:0 auto; padding:4rem 1.5rem; border-bottom:1px solid var(--line); }
+.section--wide { max-width:64rem; }
+.kicker { font-size:.6875rem; letter-spacing:.4em; text-transform:uppercase; color:var(--dim); margin:0 0 .75rem; }
+h2 { font-family:var(--font-d); color:var(--fg); letter-spacing:.18em; text-transform:uppercase; font-size:1.5rem; margin:0 0 1.5rem; }
+h3 { font-family:var(--font-d); color:var(--fg); font-size:1rem; letter-spacing:.12em; text-transform:uppercase; }
+.mission ol, .codex ol, .beliefs { padding-left:1.25rem; }
+.mission li, .codex li, .beliefs li { margin-bottom:.75rem; }
+.paths { list-style:none; padding:0; display:grid; gap:1.5rem; }
+@media(min-width:700px){ .paths { grid-template-columns:1fr 1fr 1fr; } }
+.path { border:1px solid var(--line); padding:1.25rem; background:var(--panel); }
+.path-num { color:var(--dim); font-size:.75rem; }
+.grid3 { display:grid; gap:1rem; }
+@media(min-width:700px){ .grid3 { grid-template-columns:1fr 1fr 1fr; } }
+.card { border:1px solid var(--line); padding:1.25rem; }
+.card h3 { margin:0 0 .5rem; }
+.lex-word { font-family:var(--font-d); color:var(--fg); letter-spacing:.12em; text-transform:uppercase; margin:0 0 .35rem; }
+.roots { font-size:.75rem; color:var(--dim); margin:0 0 .5rem; }
+form label { display:block; font-size:.6875rem; letter-spacing:.18em; text-transform:uppercase; margin:1rem 0 .35rem; color:var(--muted); }
+form input, form textarea {
+  width:100%; background:var(--panel); border:1px solid var(--line); color:var(--fg);
+  padding:.75rem; font:inherit;
+}
+form button {
+  margin-top:1.25rem; width:100%; font-family:var(--font-d); letter-spacing:.28em;
+  text-transform:uppercase; padding:1rem; border:1px solid var(--fg); background:var(--fg); color:var(--bg);
+}
+.site-footer { padding:3rem 1.5rem; text-align:center; font-size:.625rem; letter-spacing:.4em; text-transform:uppercase; color:var(--dim); }
+.site-footer .wm { display:block; font-family:var(--font-d); color:var(--muted); margin-bottom:.5rem; letter-spacing:.28em; }
+.hub-nav { display:flex; flex-wrap:wrap; gap:.5rem; list-style:none; padding:1.5rem 0 0; margin:0; border-top:1px solid var(--line); }
+.hub-nav a { font-family:var(--font-d); font-size:.6875rem; letter-spacing:.18em; text-transform:uppercase; border:1px solid var(--line); padding:.5rem .75rem; }
+.hub-nav a:hover { border-color:var(--fg); color:var(--fg); }
+.dossier-card { display:block; border:1px solid var(--fg); padding:1.5rem; transition:background .2s; }
+.dossier-card:hover { background:var(--panel); }
+.dossier-card h3 { margin:0 0 .5rem; }
+.dossier-card p { margin:0 0 .75rem; }
+.dossier-card .go { font-size:.6875rem; letter-spacing:.18em; text-transform:uppercase; color:var(--fg); }
+.dossier-card--soon { border-color:var(--line); color:var(--muted); }
+.roots a { color:var(--fg); border-bottom:1px solid var(--line); }
+.roots a:hover { border-bottom-color:var(--fg); }
+/* Concept: The Paths bridge (Ways of the Blade) */
+.bridge-k { margin:2.5rem 0 .5rem; }
+.bridge-h { font-family:var(--font-d); font-weight:700; color:var(--fg); font-size:clamp(1.25rem,4.6vw,1.625rem); letter-spacing:.16em; text-transform:uppercase; line-height:1.3; margin:0 0 .5rem; }
+.bridge-l { color:var(--body); font-size:1.0625rem; margin:0 0 1.5rem; max-width:40rem; }
+/* Oath: Ceremonial Scroll */
+.codex h2 { text-align:center; }
+.oath-scroll { max-width:620px; margin:0 auto; text-align:center; padding:2.25rem 1.75rem; border-top:1px solid var(--fg); border-bottom:1px solid var(--fg); }
+.oath-scroll .pre { font-family:var(--font-d); font-size:1rem; line-height:1.8; color:var(--body); margin:0 0 1.75rem; }
+.codex .oath-scroll ol { list-style:none; margin:0; padding:0; }
+.codex .oath-scroll li { margin:0; padding:1.125rem 0; border-top:1px solid var(--line); font-size:1.0625rem; line-height:1.7; color:var(--body); }
+.oath-scroll .vow { display:block; max-width:32rem; margin:0 auto; }
+.oath-scroll .rn { display:block; font-family:var(--font-d); font-weight:700; color:var(--fg); font-size:.9375rem; letter-spacing:.3em; margin:0 0 .375rem; padding-left:.3em; }
+.oath-scroll .seal { margin:1.625rem 0 0; padding-top:1.5rem; border-top:1px solid var(--line); font-family:var(--font-d); color:var(--fg); font-size:1.0625rem; letter-spacing:.06em; line-height:1.7; }
+@media(max-width:520px){
+  .oath-scroll { padding:1.75rem .25rem; }
+  .oath-scroll .pre { font-size:.9375rem; line-height:1.75; }
+  .codex .oath-scroll li { font-size:1rem; line-height:1.65; padding:1rem 0; }
+  .oath-scroll .seal { font-size:1rem; letter-spacing:.03em; }
+}
 </style>
 </head>
 <body>
-<div id="progress" aria-hidden="true"></div>
 
-<header class="topbar">
-  <div class="topbar__in">
-    <a class="wordmark" href="index.html#dossiers">VAEL'DAR</a>
-    <a class="topbar__crumb" href="index.html#dossiers">Library of Traditions</a>
+<section id="gatehouse" aria-label="Gate">
+  <div class="gate__core">
+    <img class="gate__logo" src="logo-gate.png" alt="Vael'Dar sword and shield emblem"/>
+    <h1 class="gate__title">Knight Order of Vael'Dar</h1>
+    <div class="gate__mission">
+      <p>We are knights of the order, bonded by struggle and the war within.</p>
+      <p>We stand against the chaos that seeks to rule us.</p>
+      <p>A sword as weapon of self mastery.</p>
+      <p>We stand as beacon of light for those still lost in the dark.</p>
+    </div>
+    <button type="button" class="gate__cta" id="enter-cta">Enter</button>
   </div>
-</header>
+  <div class="gate__foot">knightsofvaeldar.com · Silence · Discipline · Mastery</div>
+</section>
 
-<div class="layout">
-  <nav class="toc" aria-label="Contents">
-    <p class="toc__label">Contents</p>
-    <ol>
-      <li><a href="#crucible">1. The Crucible</a></li>
-      <li><a href="#operating-system">2. The Inner Operating System</a></li>
-      <li><a href="#daily-arsenal">3. Daily Practice</a></li>
-      <li><a href="#verdict">4. The Commander's Verdict</a></li>
-      <li><a href="#canonical-sources">5. Field Library</a></li>
-    </ol>
+<div id="stronghold">
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="wordmark" href="#about">VAEL'DAR</a>
+      <nav class="nav-global" aria-label="Main">
+        <a href="#mission">Mission</a>
+        <a href="#concept">Concept</a>
+        <a href="#codex">Oath</a>
+        <a href="#dossiers">Library of Traditions</a>
+        <a href="#language">Language</a>
+        <a href="#stories">Fireside Council</a>
+        <a href="#membership">Membership</a>
+        <a href="#community">Community</a>
+      </nav>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+  <nav class="nav-mobile" id="nav-mobile">
+    <a href="#mission">Mission</a>
+    <a href="#concept">Concept</a>
+    <a href="#codex">Oath</a>
+    <a href="#dossiers">Library of Traditions</a>
+    <a href="#language">Language</a>
+    <a href="#stories">Fireside Council</a>
+    <a href="#membership">Membership</a>
+    <a href="#community">Community</a>
   </nav>
 
-  <article>
-    <div class="chips">
-      <span class="chip chip--primary">Category 1A · Conquer &amp; Subdue</span>
-      <span class="chip">Archetype · The Sovereign</span>
-      <span class="chip">Roman Imperial Stoicism</span>
-    </div>
+  <section id="about" class="section">
+    <p class="kicker">About</p>
+    <h2>About</h2>
+    <ul class="hub-nav">
+      <li><a href="#mission">Mission</a></li>
+      <li><a href="#concept">Concept</a></li>
+      <li><a href="#codex">Oath</a></li>
+      <li><a href="#dossiers">Library of Traditions</a></li>
+    </ul>
+  </section>
 
-    <h1>The Citadel of the Will</h1>
-    <p class="subtitle">The Roman Stoic Discipline</p>
-    <p class="meta"><strong>5 min read</strong> · <strong>4 daily rituals</strong> · Protocol summary in section 3</p>
+  <section id="mission" class="section mission">
+    <h2>Mission</h2>
+    <ol>
+      <li>We are knights of the order, bonded by struggle and the war within.</li>
+      <li>We stand against the chaos that seeks to rule us.</li>
+      <li>A sword as weapon of self mastery.</li>
+      <li>We stand as beacon of light for those still lost in the dark.</li>
+    </ol>
+  </section>
 
-    <aside class="stasis">
-      <p id="hero-maxim">“The impediment to action advances action. What stands in the way becomes the way.”</p>
-      <cite>Marcus Aurelius, Meditations 5.20</cite>
-      <button class="copy" data-copy="hero-maxim">Copy</button>
-    </aside>
+  <section id="concept" class="section">
+    <h2>Concept</h2>
+    <p>The order is founded on the universal truth that we all struggle with inner demons to some extent and seek to be victorious in the battle against them.</p>
+    <p>The codex binds the members together and acts as standard for knighthood. The codex serves as a set of principles.</p>
+    <h3>Three core beliefs</h3>
+    <ol class="beliefs">
+      <li>The war with the inner demons rages in all of us.</li>
+      <li>As medium or weapon, one must pursue wholeheartedly one discipline in life.</li>
+      <li>The war with the inner demons or spirituality is a fundamental part of the human experience and it manifested itself in religions and other social structures throughout history.</li>
+    </ol>
+    <p>The theme of light and dark, order and chaos, or clarity and corruption echoes across time.</p>
+    <p class="kicker bridge-k">The Paths</p>
+    <h3 class="bridge-h">Ways of the Blade</h3>
+    <p class="bridge-l">Every tradition forged its own weapon against the dark. They fall into three forms.</p>
+    <ul class="paths">
+      <li class="path"><span class="path-num">1</span><h3>Conquer, Transform, Integrate</h3><p>Chaos within is faced head-on, mastered or transformed into strength.</p><p class="roots"><a href="roman-stoicism.html">Stoicism</a> · Ancient Egypt · Sumerian · Native American · Nietzsche · Jung · Nordic Vikings · Hindu Kshatriya · David Goggins</p></li>
+      <li class="path"><span class="path-num">2</span><h3>Block, Resist, Fortify</h3><p>Evil perceived as external. Shield with faith, law and discipline.</p><p class="roots">Christianity · Islam · Hindu Bhakti</p></li>
+      <li class="path"><span class="path-num">3</span><h3>Let go, Dissolve, Transcend</h3><p>Release chaos or attachment. Embrace flow or change.</p><p class="roots">Buddhism · Taoism · Advaita Vedanta</p></li>
+    </ul>
+  </section>
 
-    <div class="dossier">
-      <div class="dossier__row"><div class="dossier__k">Tradition</div><div class="dossier__v">Roman Imperial Stoicism (Late Stoa)</div></div>
-      <div class="dossier__row"><div class="dossier__k">Category</div><div class="dossier__v">1A. Conquer &amp; Subdue (The Sovereign)</div></div>
-      <div class="dossier__row"><div class="dossier__k">Crucible</div><div class="dossier__v">1st to 2nd century CE, Roman Empire</div></div>
-      <div class="dossier__row"><div class="dossier__k">Core Canon</div><div class="dossier__v">Meditations (Marcus Aurelius) · Discourses &amp; Enchiridion (Epictetus) · Moral Letters (Seneca)</div></div>
-    </div>
-
-    <details class="toc-mobile">
-      <summary>Contents</summary>
+  <section id="codex" class="section codex">
+    <h2>Oath</h2>
+    <div class="oath-scroll">
+      <p class="pre">Upon this day, before the world, and the witness of my own soul, I forge my oath in steel and blood, binding my heart, my mind and spirit to the path of Vael'Dar.</p>
       <ol>
-        <li><a href="#crucible">The Crucible</a></li>
-        <li><a href="#operating-system">The Inner Operating System</a></li>
-        <li><a href="#daily-arsenal">Daily Practice</a></li>
-        <li><a href="#verdict">The Commander's Verdict</a></li>
-        <li><a href="#canonical-sources">Field Library</a></li>
+        <li><span class="rn">I</span><span class="vow">I shall be a guardian of light, a protector of possibility, and a forger of paths.</span></li>
+        <li><span class="rn">II</span><span class="vow">I shall uphold faith in myself, standing unbowed against the demons within.</span></li>
+        <li><span class="rn">III</span><span class="vow">I shall cast aside ego and pride, walking the path of Honor for a purpose greater than myself.</span></li>
+        <li><span class="rn">IV</span><span class="vow">I shall pursue one discipline wholeheartedly, transcending a standard of excellence in all things of life.</span></li>
+        <li><span class="rn">V</span><span class="vow">I shall never betray my word, for it is the measure of my soul. My truth is decided by my heart's compass, not by the currents of the world.</span></li>
+        <li><span class="rn">VI</span><span class="vow">I shall walk the path of mastery with passion and courage as my fire. Only through a burning will can potential be realized.</span></li>
       </ol>
-    </details>
+      <p class="seal">This I swear, by my life and my name.<br/>Let the weight of my vow shape my destiny, and let my deeds bear witness to my truth.</p>
+    </div>
+  </section>
 
-    <!-- 1 -->
-    <section id="crucible">
-      <p class="kicker">Section 01</p>
-      <h2>The Crucible: Forged in Shipwreck, Slavery, and Plague</h2>
-      <p>Stoicism was never conceived in the quiet luxury of ivory towers or secluded monasteries. It was hammered out on the anvil of catastrophe. Its Greek progenitor, Zeno of Citium, founded the school in Athens around 300 BCE only after losing his entire fortune in a shipwreck, washing ashore with nothing left but his intellect.</p>
-      <p>Centuries later, when Rome's legions consolidated the Mediterranean world, the practical Romans stripped Greek philosophy of its abstract parlor tricks and turned it into a battle-tested operating system for the mind. Under the volatile rule of emperors like Nero and Domitian, existence was precarious, betrayals were routine, and exile or execution was always one whisper away.</p>
-      <p>The three architects of the Roman Late Stoa operated from the absolute extremes of imperial society:</p>
-      <div class="cards cards--3">
-        <div class="card">
-          <p class="card__tag">The Freedman</p>
-          <h3>Epictetus</h3>
-          <p>Born into slavery and lame from his youth, he discovered that while his body was bound, his ruling faculty remained untouchable. Once free, he taught that liberation is an internal fortress.</p>
-        </div>
-        <div class="card">
-          <p class="card__tag">The Statesman</p>
-          <h3>Seneca</h3>
-          <p>A vastly wealthy power broker who spent decades managing the tyrant Nero, writing practical therapies for wrath, grief, and terror under the daily shadow of an execution order.</p>
-        </div>
-        <div class="card">
-          <p class="card__tag">The Imperator</p>
-          <h3>Marcus Aurelius</h3>
-          <p>The most powerful man on earth, commanding legions through the Antonine Plague, treason, and winter campaigns on the Danube. He wrote the Meditations in a military tent, ordering his own exhausted mind to hold its post.</p>
-        </div>
+  <section id="dossiers" class="section section--wide">
+    <h2>Library of Traditions</h2>
+    <p>Field studies of the traditions that fought the war within. Each dossier covers where the tradition was forged, how it orders the mind, its daily practice, and where to read further.</p>
+    <div class="grid3" style="margin-top:1.5rem">
+      <a class="dossier-card" href="roman-stoicism.html">
+        <p class="roots">Category 1A · Conquer &amp; Subdue</p>
+        <h3>The Citadel of the Will</h3>
+        <p>The Roman Stoic discipline of Epictetus, Seneca, and Marcus Aurelius.</p>
+        <span class="go">Read the dossier</span>
+      </a>
+      <div class="dossier-card dossier-card--soon" aria-disabled="true">
+        <p class="roots">Category 1A · Coming soon</p>
+        <h3>The Sumerian Architect-King</h3>
+        <p>Gilgamesh and the conquest of the self.</p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- 2 -->
-    <section id="operating-system">
-      <p class="kicker">Section 02</p>
-      <h2>The Inner Operating System</h2>
-      <p>In the Order's taxonomy of inner conflict, Roman Stoicism belongs to <em>Category 1A: Conquer &amp; Subdue</em>. It does not negotiate with destructive passions, nor dissolve them into formless void. It regards the undisciplined mind as a military camp besieged by mutinous impulses (wrath, panic, sloth, and vanity) and subdues them through cold, unyielding reason.</p>
+  <section id="language" class="section section--wide">
+    <p class="kicker">04 — Language</p>
+    <h2>Language of Vael'Dar</h2>
+    <p>A symbolic, compact system for the Order. Words combine roots: the first is the main subject; the second is the defining context or quality. An apostrophe (') marks a strong bond between roots.</p>
+    <p class="roots">Source: Language of Vael'Dar Manual v3 + Complete Lexicon.</p>
+    <div class="grid3" style="margin-top:1.5rem">
+      <article class="card"><p class="lex-word">Vael'Dar</p><p class="roots">Vael (light) + Dar (darkness)</p><p>Light within darkness — the Order's namesake.</p></article>
+      <article class="card"><p class="lex-word">Rynar'dar</p><p class="roots">Rynar (inner) + Dar (darkness)</p><p>Inner darkness — the personal adversary.</p></article>
+      <article class="card"><p class="lex-word">Tor'karis</p><p class="roots">Tor (warrior) + Karis (unyielding)</p><p>The unyielding warrior.</p></article>
+      <article class="card"><p class="lex-word">Kor'val</p><p class="roots">Kor (battle) + Val (honor)</p><p>Battle for honor — a just cause.</p></article>
+      <article class="card"><p class="lex-word">Fen'val</p><p class="roots">Fen (path) + Val (honor)</p><p>The honorable path.</p></article>
+      <article class="card"><p class="lex-word">Kael'val</p><p class="roots">Kael (soul) + Val (honor)</p><p>Soul of honor — a noble spirit.</p></article>
+    </div>
+    <article class="card" style="margin-top:1rem"><p class="roots">Phrase</p><p class="lex-word">Kor'rynar mar</p><p>The inner battle is eternal.</p></article>
+  </section>
 
-      <div class="flow" aria-label="Structure of the Stoic mind">
-        <div class="flow__node"><strong>The Cosmic Logos</strong><span>The rational law of nature</span></div>
-        <div class="flow__arrow">↓</div>
-        <div class="flow__node flow__node--core"><strong>The Hegemonikon</strong><span>The sovereign ruling faculty</span></div>
-        <div class="flow__arrow">↓</div>
-      </div>
-      <div class="split">
-        <div class="split__col split__col--in">
-          <h3>Within Your Walls</h3>
-          <ul>
-            <li>Opinions and judgments</li>
-            <li>Impulses and desires</li>
-            <li>Actions and refusals</li>
-          </ul>
-          <p class="split__verdict">Total agency</p>
-        </div>
-        <div class="split__col split__col--out">
-          <h3>Outside the Gates</h3>
-          <ul>
-            <li>Body and health</li>
-            <li>Wealth and reputation</li>
-            <li>Outward success and fate</li>
-          </ul>
-          <p class="split__verdict">Indifferent</p>
-        </div>
-      </div>
+  <section id="stories" class="section section--wide">
+    <p class="kicker">05 — Fireside Council</p>
+    <h2>Fireside Council</h2>
+    <p>Around the fire, the avatars of the great traditions hold short conversations about the demons within. A Stoic, a samurai, a Templar, a philosopher: different paths, the same war. Each council shows how a tradition meets temptation, fear, or doubt, and what a knight can carry from it into the day.</p>
+    <div class="card dossier-card--soon" style="margin-top:1.5rem;text-align:center;padding:2.5rem 1.25rem">
+      <p class="roots">Coming soon</p>
+      <h3 style="margin:0 0 .5rem">The first councils are being written</h3>
+      <p style="margin:0">Stay tuned.</p>
+    </div>
+  </section>
 
-      <p>The system rests on four structural pillars:</p>
-      <div class="cards cards--2">
-        <div class="card">
-          <p class="card__tag">Pillar I</p>
-          <h3>The Inner Citadel</h3>
-          <p>The <span class="term">hegemonikon</span> is the commanding faculty of the soul. External events cannot reach your character; only your inner assent (<span class="term">synkatathesis</span>) to an impression gives it power. The mind is a fortified redoubt.</p>
-        </div>
-        <div class="card">
-          <p class="card__tag">Pillar II</p>
-          <h3>The Dichotomy of Control</h3>
-          <p>Everything divides into what lies within your will (<span class="term">prohairesis</span>) and what does not. The Sovereign spends absolute effort on the first and treats the second as indifferent (<span class="term">adiaphora</span>).</p>
-        </div>
-        <div class="card">
-          <p class="card__tag">Pillar III</p>
-          <h3>Amor Fati</h3>
-          <p>Life is not an injustice to be endured; it is raw timber for character. As a fire devours debris to burn brighter, a disciplined operator consumes misfortune and turns resistance into momentum.</p>
-        </div>
-        <div class="card">
-          <p class="card__tag">Pillar IV</p>
-          <h3>Cosmopolitan Duty</h3>
-          <p>Stoicism is not heartless isolation (<span class="term">oikeiôsis</span>). Humans are limbs of one rational organism. Facing corrupt or ungrateful people, the Stoic sees moral ignorance and fulfils civic duty (<span class="term">officium</span>) without bitterness.</p>
-        </div>
-      </div>
-    </section>
+  <section id="membership" class="section">
+    <p class="kicker">06 — Membership</p>
+    <h2>How to Become a Member</h2>
+    <p>Standing is earned after trial. Money cannot skip the gate.</p>
+    <div class="grid3" style="margin-top:1.5rem;grid-template-columns:1fr">
+      <article class="card"><h3>21-Day Squire Protocol</h3><ul><li>Daily physical standard (ruck, run, or strength).</li><li>Written reflection: name the adversary; record one act of honor.</li><li>Miss the mark, restart the day; quit, step aside.</li><li>Completion qualifies you for review — it is not standing.</li></ul></article>
+      <article class="card"><h3>Ordeals of Proof</h3><ul><li>Endurance under load.</li><li>Composure under friction.</li><li>Dawn Vigil — early rising, silence, no digital escape.</li></ul></article>
+    </div>
+    <div class="card" style="margin-top:1.5rem" id="assessment">
+      <h3>Initiation Assessment</h3>
+      <p class="roots">Optional signal of intent. No automated acceptance.</p>
+      <form id="assessment-form">
+        <label for="assess-name">Name</label>
+        <input id="assess-name" required/>
+        <label for="assess-email">Email</label>
+        <input id="assess-email" type="email" required/>
+        <label for="assess-discipline">Primary discipline</label>
+        <input id="assess-discipline" required placeholder="e.g. endurance, strength, martial art"/>
+        <label for="assess-why">Why the Order</label>
+        <textarea id="assess-why" rows="4" required></textarea>
+        <label><input id="assess-trial" type="checkbox" required/> I accept that standing is earned by trial.</label>
+        <button type="submit">Submit Signal</button>
+        <p id="assess-status" hidden></p>
+      </form>
+    </div>
+  </section>
 
-    <!-- 3 -->
-    <section id="daily-arsenal">
-      <p class="kicker">Section 03</p>
-      <h2>Daily Practice: Four Stoic Habits</h2>
-      <p>The Roman Stoics practised their philosophy every day, not just in books. Here are four short habits they used: one in the morning, one in the middle of the day, one for whenever a problem feels too big, and one before sleep. Each takes a few minutes.</p>
+  <section id="community" class="section">
+    <p class="kicker">07 — Community</p>
+    <h2>Community</h2>
+    <p>Verified members only. Channels will be named when the first cohort stands.</p>
+    <div class="card" style="margin-top:1rem"><strong style="color:#fff">Ledger</strong> — sealed until standing is verified</div>
+    <p style="margin-top:1.5rem"><a href="#assessment" style="border:1px solid #fff;padding:.75rem 1rem;display:inline-block;color:#fff;letter-spacing:.18em;text-transform:uppercase;font-size:.75rem">Request Verification</a></p>
+  </section>
 
-      <div class="tabs">
-        <div class="tabs__nav" role="tablist" aria-label="Daily protocols">
-          <button class="tab" role="tab" id="tab-dawn" aria-controls="p-dawn" aria-selected="true">01 · Dawn</button>
-          <button class="tab" role="tab" id="tab-noon" aria-controls="p-noon" aria-selected="false" tabindex="-1">02 · Midday</button>
-          <button class="tab" role="tab" id="tab-view" aria-controls="p-view" aria-selected="false" tabindex="-1">03 · View from Above</button>
-          <button class="tab" role="tab" id="tab-night" aria-controls="p-night" aria-selected="false" tabindex="-1">04 · Night</button>
-        </div>
-
-        <div class="panel" role="tabpanel" id="p-dawn" aria-labelledby="tab-dawn">
-          <h3>The Dawn Inspection · Premeditatio Malorum</h3>
-          <p class="panel__label">The Principle</p>
-          <p>Anxiety feeds on surprise. Expecting smooth seas leaves you defenseless when the squall strikes.</p>
-          <p class="panel__label">The Practice · 5 minutes</p>
-          <p>Every morning, rehearse the worst friction the day could offer: insults, logistics failures, exhaustion, betrayal. When the strike arrives, the surprise is gone and you act without panic. Say to yourself:</p>
-          <div class="mantra">
-            <p id="dawn-mantra">“Today I will meet meddlesome, ungrateful, arrogant, and dishonest men. They act this way because they cannot distinguish good from evil. None can harm me, for none can force me into dishonor.”</p>
-            <button class="copy" data-copy="dawn-mantra">Copy</button>
-          </div>
-        </div>
-
-        <div class="panel" role="tabpanel" id="p-noon" aria-labelledby="tab-noon" hidden>
-          <h3>The Midday Sentry · The Discipline of Assent</h3>
-          <p class="panel__label">The Principle</p>
-          <p>Between a raw sensation and your reaction lies an open interval. The untrained man acts on impulse; the Sovereign steps into the gap.</p>
-          <p class="panel__label">The Practice · In the moment</p>
-          <p>When anger, dread, or craving surges, address the impression directly, then demand its passport:</p>
-          <div class="mantra">
-            <p id="noon-mantra">“You are only an impression, and by no means what you appear to represent. Is this within my control, or outside it? If outside: then it is nothing to me.”</p>
-            <button class="copy" data-copy="noon-mantra">Copy</button>
-          </div>
-        </div>
-
-        <div class="panel" role="tabpanel" id="p-view" aria-labelledby="tab-view" hidden>
-          <h3>The Cosmic Vantage · The View from Above</h3>
-          <p class="panel__label">The Principle</p>
-          <p>The ego inflates petty problems into existential catastrophes.</p>
-          <p class="panel__label">The Practice · 3 minutes</p>
-          <p>Close your eyes and zoom out. See your body sitting in the room, then rise above the city, the continent, the turning earth, and deep time. Trace the rise and fall of empires, the dust of forgotten armies, the brief flash of a human life. Re-enter the room with your proportion restored.</p>
-        </div>
-
-        <div class="panel" role="tabpanel" id="p-night" aria-labelledby="tab-night" hidden>
-          <h3>The Nightly Field Audit · The Evening Review</h3>
-          <p class="panel__label">The Principle</p>
-          <p>Seneca wrote in <em>On Anger</em> that the soul improves only when hauled before its own court every night.</p>
-          <p class="panel__label">The Practice · Before sleep</p>
-          <p>When the lamps are out, review the day with cold objectivity. No guilt. Read it like an officer reviewing a tactical report:</p>
-          <ul class="checklist">
-            <li><input type="checkbox" id="q1"/><label for="q1">What weakness did I subdue today?</label></li>
-            <li><input type="checkbox" id="q2"/><label for="q2">Where did my discipline slip, and why?</label></li>
-            <li><input type="checkbox" id="q3"/><label for="q3">What concrete step will I take tomorrow to reinforce that flank?</label></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5 -->
-    <section id="verdict">
-      <p class="kicker">Section 04</p>
-      <h2>The Commander's Verdict</h2>
-      <p>To walk this path is to renounce the identity of the victim. Roman Stoicism offers no soothing fables, no guarantee of comfort, and no easy exits. It demands that you take command of the fortress within your own skull, stand your post without complaint, and turn every tragedy, betrayal, and pain into fuel for virtue.</p>
-      <div class="decree">
-        <p class="decree__label">The Order's Field Decree</p>
-        <p class="decree__text" id="decree">“My mind is my citadel. The storm may batter the walls, but the commander within holds the line. I do not demand that life be gentle; I demand that my will be iron. What stands in the way becomes the path.”</p>
-        <button class="copy" data-copy="decree">Copy</button>
-      </div>
-    </section>
-
-    <!-- 6 -->
-    <section id="canonical-sources">
-      <p class="kicker">Section 05</p>
-      <h2>Field Library</h2>
-      <ul class="library">
-        <li><strong>Marcus Aurelius</strong>, Meditations <span>· tr. Gregory Hays or Robin Hard</span></li>
-        <li><strong>Epictetus</strong>, Discourses, Fragments, Handbook <span>· tr. Robin Hard</span></li>
-        <li><strong>Seneca</strong>, Letters on Ethics to Lucilius <span>· tr. Graver &amp; Long</span>; On Anger; On the Shortness of Life</li>
-        <li><strong>Pierre Hadot</strong>, The Inner Citadel: The Meditations of Marcus Aurelius</li>
-        <li><strong>Cicero</strong>, On Duties (De Officiis)</li>
-      </ul>
-    </section>
-
-  </article>
+  <footer class="site-footer">
+    <span class="wm">Knight Order of Vael'Dar</span>
+    knightsofvaeldar.com
+  </footer>
 </div>
-
-<footer>
-  <a href="index.html#dossiers">Knight Order of Vael'Dar</a> · knightsofvaeldar.com
-</footer>
 
 <script>
 (function(){
-  // Reading progress
-  var bar=document.getElementById('progress');
-  function onScroll(){
-    var h=document.documentElement;
-    var max=h.scrollHeight-h.clientHeight;
-    bar.style.width=(max>0?(h.scrollTop/max)*100:0)+'%';
+  var gate=document.getElementById('gatehouse');
+  var hold=document.getElementById('stronghold');
+  var enter=document.getElementById('enter-cta');
+  function unlock(){
+    if(gate) gate.classList.add('is-passed');
+    if(hold){ hold.classList.add('is-open'); hold.removeAttribute('hidden'); }
+    var about=document.getElementById('about');
+    if(about) about.scrollIntoView({behavior:'smooth'});
   }
-  document.addEventListener('scroll',onScroll,{passive:true});onScroll();
-
-  // Active TOC
-  var links=document.querySelectorAll('.toc a');
-  var map={};links.forEach(function(a){map[a.getAttribute('href').slice(1)]=a;});
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){
-          links.forEach(function(l){l.classList.remove('is-active');});
-          var a=map[e.target.id];if(a)a.classList.add('is-active');
-        }
-      });
-    },{rootMargin:'-30% 0px -60% 0px'});
-    Object.keys(map).forEach(function(id){var el=document.getElementById(id);if(el)io.observe(el);});
+  if(enter) enter.addEventListener('click', unlock);
+  var target=location.hash&&document.getElementById(location.hash.slice(1));
+  if(target&&hold&&hold.contains(target)){
+    if(gate) gate.classList.add('is-passed');
+    hold.classList.add('is-open'); hold.removeAttribute('hidden');
+    setTimeout(function(){ target.scrollIntoView(); },0);
   }
-
-  // Tabs
-  var tabs=[].slice.call(document.querySelectorAll('[role="tab"]'));
-  function select(t){
-    tabs.forEach(function(x){
-      var on=x===t;
-      x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;
-      document.getElementById(x.getAttribute('aria-controls')).hidden=!on;
+  window.unlockPortal=unlock;
+  var toggle=document.getElementById('nav-toggle');
+  var mobile=document.getElementById('nav-mobile');
+  if(toggle&&mobile){
+    toggle.addEventListener('click', function(){ mobile.classList.toggle('is-open'); });
+    mobile.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ mobile.classList.remove('is-open'); }); });
+  }
+  var form=document.getElementById('assessment-form');
+  var status=document.getElementById('assess-status');
+  if(form&&status){
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      status.hidden=false;
+      status.textContent='Signal received. The Order reviews in silence — contact only if the gate opens.';
+      form.reset();
     });
-    t.focus();
   }
-  tabs.forEach(function(t,i){
-    t.addEventListener('click',function(){select(t);});
-    t.addEventListener('keydown',function(e){
-      if(e.key==='ArrowRight')select(tabs[(i+1)%tabs.length]);
-      if(e.key==='ArrowLeft')select(tabs[(i-1+tabs.length)%tabs.length]);
-    });
-  });
-
-  // Copy buttons
-  function copyText(txt,btn){
-    function done(){btn.textContent='Copied';btn.classList.add('is-done');setTimeout(function(){btn.textContent='Copy';btn.classList.remove('is-done');},1600);}
-    if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(done);}
-    else{var ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');done();}catch(e){}document.body.removeChild(ta);}
-  }
-  document.querySelectorAll('.copy').forEach(function(btn){
-    btn.addEventListener('click',function(){
-      var el=document.getElementById(btn.getAttribute('data-copy'));
-      if(el)copyText(el.textContent.trim(),btn);
-    });
-  });
-
 })();
 </script>
 </body>
