@@ -30,6 +30,7 @@ button { font:inherit; cursor:pointer; border:none; background:none; color:inher
 }
 .gate__mission { font-weight:400; font-size:.875rem; margin:0 0 2rem; max-width:36rem; }
 .gate__mission p { margin:0 0 1rem; }
+.gate__call { font-family:var(--font-d); color:var(--fg); font-size:.9375rem; line-height:1.7; max-width:30rem; margin:0 0 2rem; }
 .gate__cta {
   font-family:var(--font-d); font-size:.75rem; letter-spacing:.28em; text-transform:uppercase;
   padding:1rem 1.5rem; border:1px solid var(--fg); background:var(--fg); color:var(--bg);
@@ -96,9 +97,8 @@ form button {
 .dossier-card--soon { border-color:var(--line); color:var(--muted); }
 .roots a { color:var(--fg); border-bottom:1px solid var(--line); }
 .roots a:hover { border-bottom-color:var(--fg); }
-/* Concept: The Paths bridge (Ways of the Blade) */
-.bridge-k { margin:2.5rem 0 .5rem; }
-.bridge-h { font-family:var(--font-d); font-weight:700; color:var(--fg); font-size:clamp(1.25rem,4.6vw,1.625rem); letter-spacing:.16em; text-transform:uppercase; line-height:1.3; margin:0 0 .5rem; }
+/* Concept: Ways of the Blade */
+.bridge-h { font-family:var(--font-d); font-weight:700; color:var(--fg); font-size:clamp(1.25rem,4.6vw,1.625rem); letter-spacing:.16em; text-transform:uppercase; line-height:1.3; margin:2.5rem 0 .5rem; }
 .bridge-l { color:var(--body); font-size:1.0625rem; margin:0 0 1.5rem; max-width:40rem; }
 /* Oath: Ceremonial Scroll */
 .codex h2 { text-align:center; }
@@ -129,6 +129,7 @@ form button {
       <p>A sword as weapon of self mastery.</p>
       <p>We stand as beacon of light for those still lost in the dark.</p>
     </div>
+    <p class="gate__call">If you are at peace with complacency, look elsewhere. If you are exhausted from fighting your own mind in silence, step into the forge.</p>
     <button type="button" class="gate__cta" id="enter-cta">Enter</button>
   </div>
   <div class="gate__foot">knightsofvaeldar.com · Silence · Discipline · Mastery</div>
@@ -194,7 +195,6 @@ form button {
       <li>The war with the inner demons or spirituality is a fundamental part of the human experience and it manifested itself in religions and other social structures throughout history.</li>
     </ol>
     <p>The theme of light and dark, order and chaos, or clarity and corruption echoes across time.</p>
-    <p class="kicker bridge-k">The Paths</p>
     <h3 class="bridge-h">Ways of the Blade</h3>
     <p class="bridge-l">Every tradition forged its own weapon against the dark. They fall into three forms.</p>
     <ul class="paths">
@@ -222,7 +222,8 @@ form button {
 
   <section id="dossiers" class="section section--wide">
     <h2>Library of Traditions</h2>
-    <p>Field studies of the traditions that fought the war within. Each dossier covers where the tradition was forged, how it orders the mind, its daily practice, and where to read further.</p>
+    <p>When your thoughts turn against you, motivation isn't enough—you need a tested blueprint. We deconstructed history’s most disciplined traditions into clear, practical frameworks: where each philosophy was tested, how it silences self-doubt, its daily physical practice, and recommended reading to take it further.</p>
+    <p style="color:#fff;font-family:var(--font-d)">Do not face your demons empty-handed. Take up the tools already tempered in the fire.</p>
     <div class="grid3" style="margin-top:1.5rem">
       <a class="dossier-card" href="roman-stoicism.html">
         <p class="roots">Category 1A · Conquer &amp; Subdue</p>
@@ -242,7 +243,6 @@ form button {
     <p class="kicker">04 — Language</p>
     <h2>Language of Vael'Dar</h2>
     <p>A symbolic, compact system for the Order. Words combine roots: the first is the main subject; the second is the defining context or quality. An apostrophe (') marks a strong bond between roots.</p>
-    <p class="roots">Source: Language of Vael'Dar Manual v3 + Complete Lexicon.</p>
     <div class="grid3" style="margin-top:1.5rem">
       <article class="card"><p class="lex-word">Vael'Dar</p><p class="roots">Vael (light) + Dar (darkness)</p><p>Light within darkness — the Order's namesake.</p></article>
       <article class="card"><p class="lex-word">Rynar'dar</p><p class="roots">Rynar (inner) + Dar (darkness)</p><p>Inner darkness — the personal adversary.</p></article>
