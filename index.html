@@ -65,6 +65,14 @@ h2 { font-family:var(--font-d); color:var(--fg); letter-spacing:.18em; text-tran
 h3 { font-family:var(--font-d); color:var(--fg); font-size:1rem; letter-spacing:.12em; text-transform:uppercase; }
 .mission ol, .codex ol, .beliefs { padding-left:1.25rem; }
 .mission li, .codex li, .beliefs li { margin-bottom:.75rem; }
+.belief { display:flex; flex-direction:column; gap:.75rem; }
+.belief .path-num { font-family:var(--font-d); font-size:1.75rem; color:var(--fg); line-height:1; letter-spacing:.1em; }
+.belief-text { color:var(--fg); font-size:.9375rem; line-height:1.6; margin:0; }
+.beliefs-cards { margin-bottom:2rem; }
+.inscription { list-style:none; padding:0; margin:1rem 0 2.5rem; border-top:1px solid var(--line); }
+.inscription li { display:grid; grid-template-columns:4.5rem 1fr; align-items:baseline; gap:1.25rem; padding:1.5rem 0; border-bottom:1px solid var(--line); }
+.ins-num { font-family:var(--font-d); font-size:2rem; color:var(--fg); letter-spacing:.08em; line-height:1; text-align:left; }
+.inscription p { margin:0; color:var(--fg); font-size:1.0625rem; line-height:1.65; max-width:34rem; }
 .paths { list-style:none; padding:0; display:grid; gap:1.5rem; }
 @media(min-width:700px){ .paths { grid-template-columns:1fr 1fr 1fr; } }
 .path { border:1px solid var(--line); padding:1.25rem; background:var(--panel); }
@@ -129,7 +137,6 @@ form button {
       <p>A sword as weapon of self mastery.</p>
       <p>We stand as beacon of light for those still lost in the dark.</p>
     </div>
-    <p class="gate__call">If you are at peace with complacency, look elsewhere. If you are exhausted from fighting your own mind in silence, step into the forge.</p>
     <button type="button" class="gate__cta" id="enter-cta">Enter</button>
   </div>
   <div class="gate__foot">knightsofvaeldar.com · Silence · Discipline · Mastery</div>
@@ -140,7 +147,6 @@ form button {
     <div class="site-header__inner">
       <a class="wordmark" href="#about">VAEL'DAR</a>
       <nav class="nav-global" aria-label="Main">
-        <a href="#mission">Mission</a>
         <a href="#concept">Concept</a>
         <a href="#codex">Oath</a>
         <a href="#dossiers">Library of Traditions</a>
@@ -153,7 +159,6 @@ form button {
     </div>
   </header>
   <nav class="nav-mobile" id="nav-mobile">
-    <a href="#mission">Mission</a>
     <a href="#concept">Concept</a>
     <a href="#codex">Oath</a>
     <a href="#dossiers">Library of Traditions</a>
@@ -167,36 +172,22 @@ form button {
     <p class="kicker">About</p>
     <h2>About</h2>
     <ul class="hub-nav">
-      <li><a href="#mission">Mission</a></li>
       <li><a href="#concept">Concept</a></li>
       <li><a href="#codex">Oath</a></li>
       <li><a href="#dossiers">Library of Traditions</a></li>
     </ul>
   </section>
 
-  <section id="mission" class="section mission">
-    <h2>Mission</h2>
-    <ol>
-      <li>We are knights of the order, bonded by struggle and the war within.</li>
-      <li>We stand against the chaos that seeks to rule us.</li>
-      <li>A sword as weapon of self mastery.</li>
-      <li>We stand as beacon of light for those still lost in the dark.</li>
-    </ol>
-  </section>
-
   <section id="concept" class="section">
     <h2>Concept</h2>
     <p>The order is founded on the universal truth that we all struggle with inner demons to some extent and seek to be victorious in the battle against them.</p>
-    <p>The codex binds the members together and acts as standard for knighthood. The codex serves as a set of principles.</p>
     <h3>Three core beliefs</h3>
-    <ol class="beliefs">
-      <li>The war with the inner demons rages in all of us.</li>
-      <li>As medium or weapon, one must pursue wholeheartedly one discipline in life.</li>
-      <li>The war with the inner demons or spirituality is a fundamental part of the human experience and it manifested itself in religions and other social structures throughout history.</li>
+    <ol class="inscription">
+      <li><span class="ins-num">I</span><p>The war with the inner demons rages in all of us.</p></li>
+      <li><span class="ins-num">II</span><p>As medium or weapon, one must pursue wholeheartedly one discipline in life.</p></li>
+      <li><span class="ins-num">III</span><p>The war with the inner demons or spirituality is a fundamental part of the human experience and it manifested itself in religions and other social structures throughout history.</p></li>
     </ol>
-    <p>The theme of light and dark, order and chaos, or clarity and corruption echoes across time.</p>
-    <h3 class="bridge-h">Ways of the Blade</h3>
-    <p class="bridge-l">Every tradition forged its own weapon against the dark. They fall into three forms.</p>
+    <p class="bridge-l">The theme of light and dark, order and chaos, or clarity and corruption echoes across time. Religions, belief systems, and social structures formed around this war. Each tradition forged its own way against the dark. In the context of this war, the traditions can be categorized in three groups.</p>
     <ul class="paths">
       <li class="path"><span class="path-num">1</span><h3>Conquer, Transform, Integrate</h3><p>Chaos within is faced head-on, mastered or transformed into strength.</p><p class="roots"><a href="roman-stoicism.html">Stoicism</a> · Ancient Egypt · Sumerian · Native American · Nietzsche · Jung · Nordic Vikings · Hindu Kshatriya · David Goggins</p></li>
       <li class="path"><span class="path-num">2</span><h3>Block, Resist, Fortify</h3><p>Evil perceived as external. Shield with faith, law and discipline.</p><p class="roots">Christianity · Islam · Hindu Bhakti</p></li>
